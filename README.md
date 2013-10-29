@@ -27,3 +27,22 @@ Restaurants
 FB Integration
 
 Pull data from Yelp?
+
+
+frontend: 
+1) landing page: 
+    enter restaurant name
+    also, display some of the top dishes 'today'
+2) view a restaurant's menu
+    displays a picture of the restaurant & a blurb with information about it
+    displays the menu and its items in a table, with the ratings 
+    2b) after you click on a menu item
+        tab expands downward, or item opens in lightbox, with reviews, ratings, picture
+
+3) browse restaurants: 
+    by type, $$$, rating
+    display each with a few of the top dishes
+
+
+- additional pages not required for MVP ? - 
+'profile page'
