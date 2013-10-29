@@ -27,6 +27,7 @@ Restaurants
 FB Integration
 
 Pull data from Yelp?
+Typeahead search
 
 
 frontend: 
