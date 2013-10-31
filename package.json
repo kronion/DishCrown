@@ -11,6 +11,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "connect-flash": "0.x",
     "express": "3.x",
     "mongoose": "3.x",
     "passport": "0.x",
