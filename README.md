@@ -18,6 +18,8 @@ Server Side:
 Users
   1. Levels
   2. Points
+  3. Login
+    a. HTTPS?
 Restaurants
   1. Menus
     a. Items
