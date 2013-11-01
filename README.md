@@ -10,6 +10,10 @@ Authors:
 Collin Stedman
 Angela Zhou
 
+IMMEDIATE NOTES:
+  Can we remove all html, css, js folders outside of public?
+  Can we consolidate jquery version?
+  Can we put jquery in assets?
 
 DA LIST:
 

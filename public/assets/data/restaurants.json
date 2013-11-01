@@ -1,0 +1,8 @@
+[
+  { "value": "Agricola", "tokens": ["Agricola"] },
+  { "value": "Cheeburger Cheeburger", "tokens": ["Cheeburger", "Burger"] },
+  { "value": "Massimo's", "tokens": ["Massimo's"] },
+  { "value": "Teresa Caffe", "tokens": ["Teresa", "Caffe", "Teresa's"] },
+  { "value": "Thai Village", "tokens": ["Thai", "Village"] },
+  { "value": "Witherspoon Grill", "tokens": ["Witherspoon", "Grill"] }
+]
