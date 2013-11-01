@@ -1,0 +1,22 @@
+extend layout
+
+block content
+    .row-fluid
+        .col-md-3
+          style
+            .a {vertical-align:center;}
+          a(href='#') type
+          a(href='#') $$$
+          a(href='#') rating
+        .col-md-7
+          ul.list-group
+            li.list-group-item {{for restaurant in restaurants}}
+            li.list-group-item
+              | Restaurant 2
+              | Details
+            li.list-group-item
+              | Restaurant 3
+              | Details
+            li.list-group-item
+              | Restaurant 4
+              | Details
