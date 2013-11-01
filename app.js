@@ -92,13 +92,14 @@ connect.once('open', function callback() {
                      { error: 'Database failure: could not register new user'});
           }
           else {
-            res.send('/index.html');
+            console.log('user created');
+            res.send('/');
           }
         });
       }
       else {
         console.error('preventing duplicate insert');
-        res.send('/index.html');
+        res.send('/');
       }
     });
   });

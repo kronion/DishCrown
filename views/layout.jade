@@ -23,7 +23,7 @@ head
         li.dropdown
           a#login(role='button', data-toggle='dropdown', data-target='#') Login
           ul.dropdown-menu(role='menu', aria-labelledby='login')
-            form(action='/login', method='post')
+            form#login-form(action='/login', method='post')
               div
                 label Username:
                 input(type='text', name='username')
@@ -35,7 +35,7 @@ head
         li.dropdown
           a#signup(role='button', data-toggle='dropdown', data-target='#') Sign Up
           ul.dropdown-menu(role='menu', aria-labelledby='signup')
-            form(action='/register', method='post')
+            form#register-form(action='/register', method='post')
               div
                 label Username:
                 input(type='text', name='username')
