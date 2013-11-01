@@ -62,6 +62,11 @@ passport.use(new LocalStrategy(
 connect.on('error', console.error.bind(console, 'connection error: '));
 connect.once('open', function callback() {
   
+  // Home
+  app.get('/', function(req, res) {
+    res.render('index');
+  });
+
   // Login    
   app.post('/login',
     passport.authenticate('local', { successRedirect: '/yay',
@@ -96,6 +101,16 @@ connect.once('open', function callback() {
         res.send('/index.html');
       }
     });
+  });
+
+  // Restaurants
+  app.get('/restaurant', function(req, res) {
+    res.render('restaurant');
+  });
+
+  // Menus
+  app.get('/menu', function(req, res) {
+    res.render('menu');
   });
 });
 
