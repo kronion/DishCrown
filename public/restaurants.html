@@ -20,11 +20,9 @@
   </head>
 
   <body>
-
-
 <div class="container-fluid">
-
-    <ul class="nav nav-pills pull-right">
+  <!-- messy markup for the login nav -->
+<ul class="nav nav-pills pull-right">
     <li class="dropdown">
       <a id = "login" role="button" data-toggle="dropdown" data-target="#">Login</a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="login"><form action="/login" method="post">
@@ -63,17 +61,29 @@
 </br>
 
 
+  <div class="row-fluid">
+ <div class="logo wide-tracking">DISHCROWN</div>
+</div>
 
-  <div class="logo wide-tracking">DISHCROWN</div>
-<div class="searchbar"><input type="text" placeholder="Type a restaurant name." class="form-control flat" /></div>
-<!-- ON FORM SUBMISSION: SHOULD TAKE YOU TO CORRESPONDING REST. PAGE -->
+<div class="row-fluid">
+  <div class="col-md-3">
+    <style>.a {vertical-align:center;}</style>
+    <a href=#>type</a></br>
+    <a href=#>$$$</a></br>
+    <a href=#>rating</a></br>
+  </div>
+  <div class="col-md-7">
+    <ul class="list-group">
+  <li class="list-group-item">{{for restaurant in restaurants}}</li>
+  <li class="list-group-item">Restaurant 2 </br> Details</li>
+  <li class="list-group-item">Restaurant 3 </br> Details</li>
+  <li class="list-group-item">Restaurant 4 </br> Details</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+  </div>
+</div>
 
 
- <div class = "topdishes">
-<h3 class="wide-tracking">TOP DISHES</h3>
-<!-- insert 4 elements here from dishes; or spoof with data --> 
-LOAD WITH MASONRY ? 
- </div>
 
 </div>
     <!-- Bootstrap core JavaScript

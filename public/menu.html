@@ -20,10 +20,8 @@
   </head>
 
   <body>
-
-
 <div class="container-fluid">
-
+  <!-- messy markup for login/signup dropdowns --> 
     <ul class="nav nav-pills pull-right">
     <li class="dropdown">
       <a id = "login" role="button" data-toggle="dropdown" data-target="#">Login</a>
@@ -61,21 +59,89 @@
 </li>
 </ul>
 </br>
-
-
-
+<!-- logo div --> 
   <div class="logo wide-tracking">DISHCROWN</div>
-<div class="searchbar"><input type="text" placeholder="Type a restaurant name." class="form-control flat" /></div>
-<!-- ON FORM SUBMISSION: SHOULD TAKE YOU TO CORRESPONDING REST. PAGE -->
+
+<div class="row-fluid">
+    <div class="row-fluid">
+      <div class = "col-md-4">
+      {{restaurant image}}
+        <div id="tempimage"></div>
+    </div>
+<style>.col-md-8{height:120px;}</style>
+    <div class = "col-md-8">
+      {{restaurant blurb}} </br>
+      Address: </br> 
+      Phone: </br>
+    </div>
+  </div>
+</div>
+
+</br>
+<!--   <table class="table table-striped table-hover">
+    <tr> {{for item in restaurant.items}} </tr>
+    <tr>
+      <td>Item</td>
+      <td>Rating</td>
+    </tr>
+</table> -->
+<div class="row-fluid">
+  <div class="col-md-10">
+
+          {{load panel html for item in restaurant.items}} </br>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+        href="#collapseOne">
+        Item 1</a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="row-fluid">
+          <div class="col-md-3">
+          <div id="tempimage"></div>
+       </div>
+       <div class="col-md-6">Details about item, like rating, reviews
+         <textarea class="form-control" rows="3" placeholder="Add your comment...">
+         </textarea>
+       </div></div>
+      </div>
+    </div>
 
 
- <div class = "topdishes">
-<h3 class="wide-tracking">TOP DISHES</h3>
-<!-- insert 4 elements here from dishes; or spoof with data --> 
-LOAD WITH MASONRY ? 
- </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Item 2
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="row-fluid">
+          <div class="col-md-3">
+          <div id="tempimage"></div>
+       </div>
+       <div class="col-md-6">Details about item, like rating, reviews
+         <textarea class="form-control" rows="3" placeholder="Add your comment...">
+         </textarea>
+       </div></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
+ </div>
+
+
+</div>
+</div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
