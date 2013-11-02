@@ -16,7 +16,18 @@ exports.User = User;
 
 // Restaurants
 var restaurantSchema = Schema({
-  name: String
+  id: { type: String, lowercase: true },
+  name: String,
+  image: String,
+  rawscore: Number,
+  reviewcount: Number,
+  pricepoint: Number,
+  contact: {
+    number: String,
+    address: String,
+    website: String
+  },
+  menu: [Schema.Types.Mixed]
 });
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 exports.Restaurant = Restaurant;
