@@ -105,6 +105,19 @@ connect.once('open', function callback() {
     });
   });
 
+  // Search
+  app.get('/search', function(req, res) {
+    Restaurant.findOne({id: req.param('restaurant').toLowerCase() },
+                        function(err, restaurant) {
+      if (err) {
+        console.error.bind(console, 'query failed: ');
+      }
+      else {
+        res.render('restaurant', restaurant);
+      }
+    });
+  });
+
   // Restaurants
   app.get('/restaurant/:name', function(req, res) {
     Restaurant.findOne({id: req.params.name.toLowerCase() }, 

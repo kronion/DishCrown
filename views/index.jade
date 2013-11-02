@@ -2,7 +2,10 @@ extend layout
 
 block content
       .searchbar
-        input.form-control.flat(type='text', placeholder='Type a restaurant name.')
+        form(action='/search', method='get')
+          div
+            input.form-control.flat(type='text', name='restaurant', placeholder='Type a restaurant name.')
+            input(type='submit', value='Let\'s Eat!')
       //
          ON FORM SUBMISSION: SHOULD TAKE YOU TO CORRESPONDING REST. PAGE 
 
