@@ -3,6 +3,7 @@
     font-family: FuturaHeavy;
     src: url('../assets/FuturaStd-Heavy.otf');
 }
+@font
 .container, .container-fluid {
     width:80%;
     text-align:center;
@@ -47,7 +48,7 @@
     height:75px;
 }
 li.nav {top:20px;}
-
+p {font-family:'Open Sans';}
 #tempimage{margin-left:100px;
           width:100px;height:100px;
           background-color:#EEEEEE;
