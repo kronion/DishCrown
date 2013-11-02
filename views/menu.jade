@@ -1,5 +1,21 @@
 extend layout
 
+mixin itempanel(item, index)
+   #accordion.panel-group
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a.accordion-toggle(data-toggle='collapse', data-parent='#accordion', href='#collapse#{ index }')
+              =item.name
+        #collapse#{ index }.panel-collapse.collapse
+          .panel-body
+            .row-fluid
+              .col-md-3
+                #tempimage
+              .col-md-6
+                | Details about item, like rating, reviews
+                =item.overall
+                textarea.form-control(rows='3', placeholder='Add your comment...')
 block topbar
     .row-fluid
         .row-fluid
@@ -10,33 +26,14 @@ block topbar
             .col-md-8{height:120px;}
           .col-md-8
             #restaurant.name
-            |"restaurant.address"
-            |"restaurant.phone"
+            #restaurant.contact.number
+            #restaurant.contact.address
     <br>  
     
 
-    // {{}} indicates that view needs to be written
-    // Need to iterate over the items in menu and display them
-    // in accordion-folding markup 
-    // TODO: accordion mixin
 
     .row-fluid
         .col-md-10
-            | {{load panel html for item in restaurant.items}}
-            #accordion.panel-group
-              .panel.panel-default
-                .panel-heading
-                  h4.panel-title
-                    a.accordion-toggle(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
-                      | Item 1
-                #collapseOne.panel-collapse.collapse
-                  .panel-body
-                    .row-fluid
-                      .col-md-3
-                        #tempimage
-                      .col-md-6
-                        | Details about item, like rating, reviews
-                        textarea.form-control(rows='3', placeholder='Add your comment...')
-
-
+          each val, index in restaurant.menu
+            +itempanel(val, index)
 

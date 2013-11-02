@@ -40,6 +40,7 @@
     text-align:center;
     float:center;
     left,right:auto;
+    width:70%;
 }
 .form-control{
     margin-left:auto;
@@ -50,8 +51,17 @@
     border-transparency:40%;
 }
 li.nav {top:20px;}
-p {font-family:'Open Sans', sans-serif;}
+ul.nav {
+    padding-top:10px;
+    padding-right:10px;
+}
+p {font-family:'Open Sans';}
 #tempimage{margin-left:100px;
           width:100px;height:100px;
           background-color:#EEEEEE;
           left:50px;}
+.container{
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
