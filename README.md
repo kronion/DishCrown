@@ -10,8 +10,13 @@ Authors:
 Collin Stedman
 Angela Zhou
 
+RESTAURANTS
+  Mehek
+  Mezaluna
+  Mediterra
+  Teresa Caffe
+
 IMMEDIATE NOTES:
-  Can we remove all html, css, js folders outside of public?
   Can we consolidate jquery version?
   Can we put jquery in assets?
 

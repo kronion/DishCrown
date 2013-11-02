@@ -13,6 +13,7 @@ app.set('view engine', 'jade')
 var db = require('./models/db');
 var connect = db.connect;
 var User = db.User;
+var Restaurant = db.Restaurant;
 
 // Passport user authentication
 var passport = require('passport'),
@@ -105,8 +106,16 @@ connect.once('open', function callback() {
   });
 
   // Restaurants
-  app.get('/restaurant', function(req, res) {
-    res.render('restaurant');
+  app.get('/restaurant/:name', function(req, res) {
+    Restaurant.findOne({id: req.params.name.toLowerCase() }, 
+                        function(err, restaurant) {
+      if (err) {
+        console.error.bind(console, 'query failed: ');
+      }
+      else {
+        res.render('restaurant', restaurant);
+      }
+    });
   });
 
   // Menus
