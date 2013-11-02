@@ -1,4 +1,7 @@
 $('.form-control').typeahead({
   name: 'restaurants',
-  prefetch: './assets/data/restaurants.json'
+  prefetch: {
+    url: './assets/data/restaurants.json',
+    ttl: 3600000
+  }
 });

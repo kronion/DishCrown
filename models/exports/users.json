@@ -1,0 +1,3 @@
+{ "username" : "test", "password" : "test", "_id" : { "$oid" : "52721d5ad89f9793f2000001" }, "__v" : 0 }
+{ "username" : "test2", "password" : "test2", "_id" : { "$oid" : "52721e302a138d9df2000001" }, "__v" : 0 }
+{ "username" : "user", "password" : "123", "_id" : { "$oid" : "52742bf23319420000000001" }, "__v" : 0 }

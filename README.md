@@ -10,11 +10,27 @@ Authors:
 Collin Stedman
 Angela Zhou
 
-RESTAURANTS
-  Mehek
-  Mezaluna
-  Mediterra
-  Teresa Caffe
+RESTAURANT DB REPRESENTATION
+  ID
+  NAME
+  IMAGE
+  RAWSCORE
+  REVIEWCOUNT
+  PRICEPOINT
+  CONTACT
+    NUMBER
+    ADDRESS
+    WEBSITE
+  MENU
+    ARRAY OF
+      DISH
+        ID
+        Name
+        Overall
+        Taste
+        Presentation
+        Value
+        Reviewcount
 
 IMMEDIATE NOTES:
   Can we consolidate jquery version?
