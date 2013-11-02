@@ -4,14 +4,15 @@ block content
     .row-fluid
         .col-md-3
           .style
-            .a {vertical-align:center;}
-          a(href='#') type
-          a(href='#') $$$
-          a(href='#') rating
+            // - Wtf is this?
+            .a(vertical-align:center;)
+          a(href='#') #{pricepoint}
+          |  - 
+          a(href='#') #{rating}
         .col-md-7
           ul.list-group
             li.list-group-item 
-                h5 #{name}
+                h5 #{restaurant.name}
             li.list-group-item
               | Restaurant 2
               | Details

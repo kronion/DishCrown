@@ -107,13 +107,14 @@ connect.once('open', function callback() {
 
   // Search
   app.get('/search', function(req, res) {
+    var id = req.param('restaurant').toLowerCase().replace(/\+/g, "%20");
     Restaurant.findOne({id: req.param('restaurant').toLowerCase() },
                         function(err, restaurant) {
       if (err) {
         console.error.bind(console, 'query failed: ');
       }
       else {
-        res.render('restaurant', restaurant);
+        res.render('restaurant', { restaurant: restaurant });
       }
     });
   });
@@ -126,7 +127,21 @@ connect.once('open', function callback() {
         console.error.bind(console, 'query failed: ');
       }
       else {
-        res.render('restaurant', restaurant);
+        var pricepoint;
+        if (restaurant.pricepoint === 0) {
+          pricepoint = '$';
+        } else if (restaurant.pricepoint === 1) {
+          pricepoint = '$$';
+        } else if (restaurant.pricepoint === 2) {
+          pricepoint = '$$$';
+        } else if (restaurant.pricepoint === 3) {
+          pricepoint = '$$$$';
+        }
+        var rating = restaurant.rawscore / restaurant.reviewcount;
+        
+        res.render('restaurant', { restaurant: restaurant, 
+                                   rating: rating,
+                                   pricepoint: pricepoint });
       }
     });
   });

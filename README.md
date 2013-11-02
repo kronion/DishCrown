@@ -35,6 +35,7 @@ RESTAURANT DB REPRESENTATION
 IMMEDIATE NOTES:
   Can we consolidate jquery version?
   Can we put jquery in assets?
+  Utils folder, for js functions?
 
 DA LIST:
 
