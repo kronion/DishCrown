@@ -44,11 +44,13 @@
 .form-control{
     margin-left:auto;
     margin-right:auto;
-    width:200px;
-    height:75px;
+    width:300px;
+    height:40px;
+    border-color: #1ABC9C;
+    border-transparency:40%;
 }
 li.nav {top:20px;}
-p {font-family:'Open Sans';}
+p {font-family:'Open Sans', sans-serif;}
 #tempimage{margin-left:100px;
           width:100px;height:100px;
           background-color:#EEEEEE;
