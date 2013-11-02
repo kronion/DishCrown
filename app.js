@@ -1,66 +1,29 @@
-// Express
+/* Express */
 var express = require('express');
-var app = express();
+var app = module.exports = express();
 app.use(express.compress());
 app.use(express.static(__dirname + '/public'));
 //using jade
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 
-
-
-// Mongoose db
+/* Mongoose db */
 var db = require('./models/db');
 var connect = db.connect;
-var User = db.User;
-var Restaurant = db.Restaurant;
 
-// Passport user authentication
-var passport = require('passport'),
-LocalStrategy = require('passport-local').Strategy;
+/* Routes */
+// Authenticating and user signin
+var authentication = require('./routes/authentication');
+authentication.configure(app, express);
 
-// Connect-flash, for passport messages
-var flash = require('connect-flash');
+// Search
+var search = require('./routes/search');
 
-// Passport configuration
-app.configure(function() {
-  app.use(express.cookieParser()); // Change?
-  // Note: next two lines replace express.bodyParser(), which is deprecated
-  app.use(express.json());
-  app.use(express.urlencoded());
-  app.use(express.cookieSession({ secret: 'SECRET' })); // WTF IS THIS
-  app.use(flash()); // Flash messages, not working yet
-  app.use(passport.initialize());
-  app.use(passport.session());
-});
-passport.serializeUser(function(user, done) {
-  done(null, user._id);
-});
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
-  });
-});
-passport.use(new LocalStrategy(
- function(username, password, done) {
-    User.findOne({username: username}, function(err, user) {
-      if (err) {
-        return done(err); 
-      }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      // Are passwords being sent plaintext in form??
-      if (user.password != password) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
+// Restaurants
+var restaurants = require('./routes/restaurants');
 
-// DB connect, on callback start routing
-connect.on('error', console.error.bind(console, 'connection error: '));
+/* DB connect, on callback start routing */
+connect.on('error', console.error.bind(console, 'connection error:'));
 connect.once('open', function callback() {
   
   // Home
@@ -69,82 +32,16 @@ connect.once('open', function callback() {
   });
 
   // Login    
-  app.post('/login',
-    passport.authenticate('local', { successRedirect: '/yay',
-                                    failureRedirect: '/boo',
-                                    failureFlash: true })
-    );
+  app.post('/login', authentication.login);
 
   // Register
-  app.post('/register', function(req, res) {
-    User.findOne({username: req.body.username}, function(err, user) {
-      if (err) {
-        console.error.bind(console, 'query failed: ');
-      }
-      if (!user) {
-        newUser = new User({username: req.body.username, 
-                            password: req.body.password});
-        newUser.save(function (err) {
-          // Probably doesn't handle error correctly, but it shouldn't happen
-          // in practice so w/e
-          if (err) {
-            console.error('insert failed: ', err);
-            res.send(503, 
-                     { error: 'Database failure: could not register new user'});
-          }
-          else {
-            console.log('user created');
-            res.send('/');
-          }
-        });
-      }
-      else {
-        console.error('preventing duplicate insert');
-        res.send('/');
-      }
-    });
-  });
+  app.post('/register', authentication.register);
 
   // Search
-  app.get('/search', function(req, res) {
-    var id = req.param('restaurant').toLowerCase().replace(/\+/g, "%20");
-    Restaurant.findOne({id: req.param('restaurant').toLowerCase() },
-                        function(err, restaurant) {
-      if (err) {
-        console.error.bind(console, 'query failed: ');
-      }
-      else {
-        res.render('restaurant', { restaurant: restaurant });
-      }
-    });
-  });
+  app.get('/search', search);
 
   // Restaurants
-  app.get('/restaurant/:name', function(req, res) {
-    Restaurant.findOne({id: req.params.name.toLowerCase() }, 
-                        function(err, restaurant) {
-      if (err) {
-        console.error.bind(console, 'query failed: ');
-      }
-      else {
-        var pricepoint;
-        if (restaurant.pricepoint === 0) {
-          pricepoint = '$';
-        } else if (restaurant.pricepoint === 1) {
-          pricepoint = '$$';
-        } else if (restaurant.pricepoint === 2) {
-          pricepoint = '$$$';
-        } else if (restaurant.pricepoint === 3) {
-          pricepoint = '$$$$';
-        }
-        var rating = restaurant.rawscore / restaurant.reviewcount;
-        
-        res.render('restaurant', { restaurant: restaurant, 
-                                   rating: rating,
-                                   pricepoint: pricepoint });
-      }
-    });
-  });
+  app.get('/restaurant/:name', restaurants);
 
   // Menus
   app.get('/menu', function(req, res) {
