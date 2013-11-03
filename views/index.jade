@@ -1,13 +1,24 @@
 extend layout
 
+block flash
+    if req.flash.error
+        each error in req.flash.error
+            .alert.alert-error.alert-dismissable=error
+            button.close(type="button", data-dismiss="alert" aria-hidden="true")
+    if req.flash.success
+        each error in req.flash.success
+            .alert.alert-success.alert-dismissable=error
+            button.close(type="button", data-dismiss="alert" aria-hidden="true")         
+
+-$(".alert").alert()
+
+.logo.wide-tracking DISHCROWN
 block content
       .searchbar
         form(action='/search', method='get')
           div
-            input.form-control.flat(type='text', name='restaurant', placeholder='Type a restaurant name.')
-            input(type='submit', value='Let\'s Eat!')
-      //
-         ON FORM SUBMISSION: SHOULD TAKE YOU TO CORRESPONDING REST. PAGE 
+            input.form-control.flat.form-group(type='text', name='restaurant', placeholder='Type a restaurant name.')
+            input.btn.btn-small(type='submit', value='Let\'s Eat!')
 
-block dishes
-    h3.wide-tracking TOP DISHES
+
+    
