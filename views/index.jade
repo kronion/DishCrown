@@ -5,8 +5,8 @@ block flash
         each error in flash.error
             .alert.alert-error.alert-dismissable=error
             button.close(type="button", data-dismiss="alert" aria-hidden="true")
-    if flash.success
-        each error in flash.success
+    if flash.info
+        each error in flash.info
             .alert.alert-success.alert-dismissable=error
             button.close(type="button", data-dismiss="alert" aria-hidden="true")         
 
