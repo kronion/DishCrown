@@ -28,7 +28,7 @@ connect.once('open', function callback() {
   
   // Home
   app.get('/', function(req, res) {
-    res.render('index');
+    res.render('index', req.flash());
   });
 
   // Login    

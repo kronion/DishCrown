@@ -52,14 +52,14 @@ module.exports = {
 
   login: function(req, res) {
     (passport.authenticate('local', { successRedirect: '/yay',
-                                     failureRedirect: '/boo',
+                                     failureRedirect: '/',
                                      failureFlash: true }))(req, res);
   },
 
   register: function(req, res) {
     User.findOne({username: req.body.username}, function(err, user) {
       if (err) {
-        console.error.bind(console, 'query failed: ');
+        console.error.bind(console, 'query failed:');
       }
       if (!user) {
         newUser = new User({username: req.body.username,
@@ -68,18 +68,21 @@ module.exports = {
           // Probably doesn't handle error correctly, but it shouldn't happen
           // in practice so w/e
           if (err) {
-            console.error('insert failed: ', err);
+            console.error.bind(console, 'insert failed:');
+            // Check if this works btw
             res.send(503,
                      { error: 'Database failure: could not register new user'});
           }
           else {
-            console.log('user created');
+            console.log('user created'); 
+            req.flash('info', 'User created!');
             res.send('/');
           }
         });
       }
       else {
         console.error('preventing duplicate insert');
+        req.flash('error', 'Username already taken, please try again.');
         res.send('/');
       }
     });
