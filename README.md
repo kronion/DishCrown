@@ -70,12 +70,10 @@ Restaurants
   1. Menus
     a. Items
       i. Comments
-        * Likeable
       ii. Ratings
 FB Integration
 
 Pull data from Yelp?
-Typeahead search
 
 
 frontend: 

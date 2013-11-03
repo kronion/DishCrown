@@ -6,9 +6,9 @@ mixin itempanel(item, index)
       .panel.panel-default
         .panel-heading
           h4.panel-title
-            a.accordion-toggle(data-toggle='collapse', data-parent='#accordion', href='#collapse#{ index }')
+            a.accordion-toggle(data-toggle='collapse', data-parent='#accordion', href='##{ index }')
               =item.name
-        #collapse#{ index }.panel-collapse.collapse
+        div(id=index).panel-collapse.collapse
           .panel-body
             .row-fluid
               .col-md-3
