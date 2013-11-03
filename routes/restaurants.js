@@ -14,7 +14,18 @@ var makeJSON = function(restaurant) {
   }
   var rating = restaurant.rawscore / restaurant.reviewcount;
 
-  return ({ restaurant: restaurant,
+  var logged_in;
+  if (req.session.passport) {
+    logged_in = 1;
+  }
+  else logged_in = 0;
+
+  var cookie = logged_in;
+  var flash = req.flash();
+
+  return ({ cookie: cookie,
+            flash: flash,
+            restaurant: restaurant,
             rating: rating,
             pricepoint: pricepoint });
 };

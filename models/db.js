@@ -9,7 +9,12 @@ var Schema = mongoose.Schema; // Just shortens the code
 // Users
 var userSchema = Schema({
   username: String,
-  password: String
+  password: String,
+  score: Number,
+  reviews: {
+    dishes: [Schema.Types.Mixed],
+    restaurants: [Schema.Types.Mixed]
+  }
 });
 var User = mongoose.model('User', userSchema);
 exports.User = User;

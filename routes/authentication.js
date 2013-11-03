@@ -51,9 +51,14 @@ module.exports = {
   },
 
   login: function(req, res) {
-    (passport.authenticate('local', { successRedirect: '/yay',
+    (passport.authenticate('local', { successRedirect: '/',
                                      failureRedirect: '/',
                                      failureFlash: true }))(req, res);
+  },
+
+  logout: function(req, res) {
+    req.logout();
+    res.redirect('/');
   },
 
   register: function(req, res) {
@@ -63,7 +68,13 @@ module.exports = {
       }
       if (!user) {
         newUser = new User({username: req.body.username,
-                            password: req.body.password});
+                            password: req.body.password,
+                            score: 0,
+                            reviews: {
+                              dishes: [],
+                              restaurants: []
+                            }
+                          });
         newUser.save(function (err) {
           // Probably doesn't handle error correctly, but it shouldn't happen
           // in practice so w/e
@@ -74,14 +85,12 @@ module.exports = {
                      { error: 'Database failure: could not register new user'});
           }
           else {
-            console.log('user created'); 
             req.flash('info', 'User created!');
             res.send('/');
           }
         });
       }
       else {
-        console.error('preventing duplicate insert');
         req.flash('error', 'Username already taken, please try again.');
         res.send('/');
       }

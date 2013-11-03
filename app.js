@@ -28,11 +28,21 @@ connect.once('open', function callback() {
   
   // Home
   app.get('/', function(req, res) {
-    res.render('index', req.flash());
+    var logged_in;
+    if (req.session.passport.user) {
+      logged_in = 1;
+    }
+    else logged_in = 0;
+
+    res.render('index', { cookie: logged_in,
+                          flash: req.flash()});
   });
 
   // Login    
   app.post('/login', authentication.login);
+
+  // Logout
+  app.get('/logout', authentication.logout);
 
   // Register
   app.post('/register', authentication.register);
