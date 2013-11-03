@@ -1,12 +1,12 @@
 extend layout
 
 block flash
-    if req.flash.error
-        each error in req.flash.error
+    if flash.error
+        each error in flash.error
             .alert.alert-error.alert-dismissable=error
             button.close(type="button", data-dismiss="alert" aria-hidden="true")
-    if req.flash.success
-        each error in req.flash.success
+    if flash.success
+        each error in flash.success
             .alert.alert-success.alert-dismissable=error
             button.close(type="button", data-dismiss="alert" aria-hidden="true")         
 

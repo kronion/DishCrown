@@ -8,9 +8,10 @@ block content
           .style
             // - Wtf is this?
             .a(vertical-align:center;)
-          a(href='#') #{pricepoint}
+          //changed pricepoint -> restaurant.pricepoint; will change back if it breaks
+          a(href='#')=#{restaurant.pricepoint}
           |  - 
-          a(href='#') #{rating}
+          a(href='#')=#{restaurant.rating}
         .col-md-7
           ul.list-group
             li.list-group-item 

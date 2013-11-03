@@ -17,6 +17,8 @@ mixin itempanel(item, index)
                 | Details about item, like rating, reviews
                 =item.overall
                 textarea.form-control(rows='3', placeholder='Add your comment...')
+
+
 block topbar
     .row-fluid
         .row-fluid
@@ -26,9 +28,9 @@ block topbar
           .style
             .col-md-8{height:120px;}
           .col-md-8
-            #restaurant.name
-            #restaurant.contact.number
-            #restaurant.contact.address
+            #{restaurant.name}
+            #{restaurant.contact.number}
+            #{restaurant.contact.address}
     <br>  
     
 
