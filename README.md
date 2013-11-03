@@ -32,6 +32,16 @@ RESTAURANT DB REPRESENTATION
         Value
         Reviewcount
 
+USER DB REPRESENTATION
+  COOKIE
+  USERNAME
+  SCORE
+  REVIEWS
+    ARRAY OF
+      DISH IDS
+    ARRAY OF
+      RESTAURANT IDS
+
 IMMEDIATE NOTES:
   Can we consolidate jquery version?
   Can we put jquery in assets?
