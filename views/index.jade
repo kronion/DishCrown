@@ -5,8 +5,8 @@ block flash
         each error in flash.error
             .alert.alert-error.alert-dismissable=error
             button.close(type="button", data-dismiss="alert" aria-hidden="true")
-    if flash.success
-        each error in flash.success
+    if flash.info
+        each error in flash.info
             .alert.alert-success.alert-dismissable=error
             button.close(type="button", data-dismiss="alert" aria-hidden="true")         
 
@@ -14,7 +14,7 @@ block content
       .searchbar
         form(action='/search', method='get')
           div
-            input.form-control.flat.form-group(type='text', name='restaurant', placeholder='Type a restaurant name.')
+            input.form-control.flat.form-group#search-input(type='text', name='restaurant', placeholder='Type a restaurant name.')
             input.btn.btn-small(type='submit', value='Let\'s Eat!')
 
 
