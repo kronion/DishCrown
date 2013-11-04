@@ -53,10 +53,11 @@ connect.once('open', function callback() {
   // Restaurants
   app.get('/restaurant/:name', restaurants);
 
-  // Menus
-  app.get('/menu', function(req, res) {
-    res.render('menu');
+  // Dish Reviews
+  app.post('/reviewdish', function(req, res) {
+    res.send({ error: 'test' });
   });
+
 });
 
 app.listen(3000);

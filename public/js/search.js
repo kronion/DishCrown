@@ -1,4 +1,4 @@
-$('.form-control').typeahead({
+$('#search-input').typeahead({
   name: 'restaurants',
   prefetch: {
     url: './assets/data/restaurants.json',

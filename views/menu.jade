@@ -28,10 +28,10 @@ mixin itempanel(item, index)
                           a.four-stars(href='#', title='4 stars out of 5') 4
                         li
                           a.five-stars(href='#', title='5 stars out of 5') 5
-                form.form-group(action='/     ', method='post')
-                div  
-                  textarea.form-control(rows='3', placeholder='Add your comment...')
-                  input.btn.btn-small#dish-submit(type='submit', value='review')
+
+                form.form-group(id='dish'+index+'form', action='/reviewdish', method='post')
+                  textarea.form-control(rows='3', placeholder='Add your comment')
+                  input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
 
 
 block topbar
@@ -43,23 +43,21 @@ block topbar
           .style
             .col-md-8{height:120px;}
           .col-md-8
-            #{restaurant.name}
-            #{restaurant.contact.number}
-            #{restaurant.contact.address}
             input.star.glyphicon.glyphicon-star-empty 
             input.star.glyphicon.glyphicon-star-empty
             input.star.glyphicon.glyphicon-star-empty
             input.star.glyphicon.glyphicon-star-empty
             input.star.glyphicon.glyphicon-star-empty
 
-            form.form-group(action='/     ', method='post')
-            div  
-              textarea.form-control(rows='3', placeholder='Add your comment...')
-              input.btn.btn-small#dish-submit(type='submit', value='review')
+            //
+              form.form-group(action='/     ', method='post')
+              div  
+                textarea.form-control(rows='3', placeholder='Add your comment...')
+                input.btn.btn-small#dish-submit(type='submit', value='review')
 
-
-
-
+            h3 #{restaurant.name}
+            p #{restaurant.contact.number}
+            p #{restaurant.contact.address}
 
     <br>  
     
@@ -70,3 +68,5 @@ block topbar
           each val, index in restaurant.menu
             +itempanel(val, index)
 
+block append scripts 
+  script(type='text/javascript', src='/js/dishreview.js')
