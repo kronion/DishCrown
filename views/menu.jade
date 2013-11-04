@@ -16,7 +16,9 @@ mixin itempanel(item, index)
               .col-md-6
                 | Details about item, like rating, reviews
                 =item.overall
-                textarea.form-control(rows='3', placeholder='Add your comment...')
+                form(id='dish'+index+'form', action='/reviewdish', method='post')
+                  textarea.form-control(rows='3', placeholder='Add your comment')
+                  input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
 
 
 block topbar
@@ -28,9 +30,9 @@ block topbar
           .style
             .col-md-8{height:120px;}
           .col-md-8
-            #{restaurant.name}
-            #{restaurant.contact.number}
-            #{restaurant.contact.address}
+            h3 #{restaurant.name}
+            p #{restaurant.contact.number}
+            p #{restaurant.contact.address}
     <br>  
     
 
@@ -40,3 +42,5 @@ block topbar
           each val, index in restaurant.menu
             +itempanel(val, index)
 
+block append scripts 
+  script(type='text/javascript', src='/js/dishreview.js')

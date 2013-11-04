@@ -36,6 +36,10 @@ module.exports = function(req, res) {
     if (err) {
       console.error.bind(console, 'query failed:');
     }
+    else if (!restaurant) {
+    req.flash('error', 'Restaurant not found. Please search again.');
+    res.redirect('/');
+    }
     else {
       res.render('menu', makeJSON(restaurant, req));
     }
