@@ -13,19 +13,25 @@ mixin itempanel(item, index)
             .row-fluid
               .col-md-3
                 #tempimage
-              .col-md-6
-                | Details about item, like rating, reviews
-                input.star.glyphicon.glyphicon-star-empty 
-                  
-                input.star.glyphicon.glyphicon-star-empty
-
-                input.star.glyphicon.glyphicon-star-empty
-
-                input.star.glyphicon.glyphicon-star-empty
-
-                input.star.glyphicon.glyphicon-star-empty
+ //             .col-md-6
+ //               | Details about item, like rating, reviews
                 =item.overall
-                textarea.form-control(rows='3', placeholder='Add your comment...')
+                span.inline-rating
+                    ul.star-rating.small-star
+                        li
+                          a.one-star(href='#', title='1 star out of 5') 1
+                        li
+                          a.two-stars(href='#', title='2 stars out of 5') 2
+                        li
+                          a.three-stars(href='#', title='3 stars out of 5') 3
+                        li
+                          a.four-stars(href='#', title='4 stars out of 5') 4
+                        li
+                          a.five-stars(href='#', title='5 stars out of 5') 5
+                form.form-group(action='/     ', method='post')
+                div  
+                  textarea.form-control(rows='3', placeholder='Add your comment...')
+                  input.btn.btn-small#dish-submit(type='submit', value='review')
 
 
 block topbar
@@ -40,6 +46,21 @@ block topbar
             #{restaurant.name}
             #{restaurant.contact.number}
             #{restaurant.contact.address}
+            input.star.glyphicon.glyphicon-star-empty 
+            input.star.glyphicon.glyphicon-star-empty
+            input.star.glyphicon.glyphicon-star-empty
+            input.star.glyphicon.glyphicon-star-empty
+            input.star.glyphicon.glyphicon-star-empty
+
+            form.form-group(action='/     ', method='post')
+            div  
+              textarea.form-control(rows='3', placeholder='Add your comment...')
+              input.btn.btn-small#dish-submit(type='submit', value='review')
+
+
+
+
+
     <br>  
     
 
