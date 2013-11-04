@@ -1,6 +1,6 @@
 var Restaurant = require('../models/db').Restaurant;
 
-var makeJSON = function(restaurant) {
+var makeJSON = function(restaurant, req) {
 
   var pricepoint;
   if (restaurant.pricepoint === 0) {
@@ -36,8 +36,12 @@ module.exports = function(req, res) {
     if (err) {
       console.error.bind(console, 'query failed:');
     }
+    else if (!restaurant) {
+    req.flash('error', 'Restaurant not found. Please search again.');
+    res.redirect('/');
+    }
     else {
-      res.render('restaurant', makeJSON(restaurant));
+      res.render('menu', makeJSON(restaurant, req));
     }
   });
 };

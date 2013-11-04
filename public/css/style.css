@@ -27,12 +27,14 @@
     padding-bottom:50px;
 }
 .searchbar { 
-    text-align:center;
     margin-left:auto;
     margin-right:auto;
     margin-top:100px;
     margin-bottom:30px;
     width:300px;
+}
+#search-input {
+  text-align:center;
 }
 .container-fluid{
     margin-right:auto;
