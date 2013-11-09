@@ -8,17 +8,20 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 
 /* HTTPS */
+var http = require('http');
 var https = require('https'),
 fs = require('fs');
 var options = {
   key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem'),
+  cert: fs.readFileSync('cert.pem')
 };
-https.createServer(options, app);
+https.createServer(options, app).listen(443);
+http.createServer(app).listen(80);
+app.enable('trust proxy'); // I think this doesn't work
 
 /* HTTPS Redirects */
 function requireHTTPS(req, res, next) {
-  if (!req.secure) {
+  if (!res.socket.ssl) {
     return res.redirect('https://' + req.get('host') + req.url);
   }
   next();
@@ -79,4 +82,4 @@ connect.once('open', function callback() {
 
 });
 
-app.listen(3000);
+//app.listen(443);
