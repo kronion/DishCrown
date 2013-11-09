@@ -17,6 +17,13 @@ mixin itempanel(item, index)
 //| Details about item, like rating, reviews
                 p item.overall
                 form.form-group(id='dish'+index+'form', action='/reviewdish', method='post')
+                  form.form-group(id='dstars'+index+'form', action='/dishstarreview', method='post')
+                    input#id1#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input#id2#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input#id3#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input#id4#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input#id5#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+
                   textarea.form-control(rows='3', placeholder='Add your comment')
                   input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
 
@@ -45,28 +52,14 @@ block topbar
             p #{restaurant.contact.number}
             p #{restaurant.contact.address}
 
-            // 
-              will you want to display resturant reviews as well? like, 
-              each review in restaurant.reviews 
-                review = ....
+
+            each review in restaurant.reviews 
+              p review
 
 
             form.form-group(id='       ', type='submit',action='/      ', method='post')
-              span.inline-rating
-                ul.star-rating.small-star
-                    li.current-rating(style='width: 30%;') 
-                    li
-                      input.glyphicon.glyphicon-star.starsubmit.one-star(id='       ', type='submit', title='1 star out of 5') 1
-                    li
-                      input.glyphicon.glyphicon-star.starsubmit.two-stars(id='       ', type='submit, ' title='2 stars out of 5') 2
-                    li
-                      input.glyphicon.glyphicon-star.starsubmit.three-stars(id='     ' , type='submit, title='3 stars out of 5') 3
-                    li
-                      input.glyphicon.glyphicon-star.starsubmit.four-stars(id='      ', type='submit, title='4 stars out of 5') 4
-                    li
-                      input.glyphicon.glyphicon-star.starsubmit.five-stars(id='      ', type='submit, title='5 stars out of 5') 5
 
-    <br>  
+
     
 
 
