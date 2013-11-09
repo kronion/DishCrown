@@ -20,6 +20,17 @@ mixin itempanel(item, index)
                   textarea.form-control(rows='3', placeholder='Add your comment')
                   input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
 
+block flash
+    if flash.error
+        each error in flash.error
+            .alert.alert-error.alert-dismissable=error
+              button.close(type="button", data-dismiss="alert" aria-hidden="true")
+                | x
+    if flash.info
+        each error in flash.info
+            .alert.alert-success.alert-dismissable=error
+              button.close(type="button", data-dismiss="alert" aria-hidden="true")
+                | x
 
 block topbar
     .row-fluid

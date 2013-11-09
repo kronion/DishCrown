@@ -15,7 +15,7 @@ var makeJSON = function(restaurant, req) {
   var rating = restaurant.rawscore / restaurant.reviewcount;
 
   var logged_in;
-  if (req.session.passport) {
+  if (req.session.passport.user) {
     logged_in = 1;
   }
   else logged_in = 0;

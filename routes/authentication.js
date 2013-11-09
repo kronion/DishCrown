@@ -1,4 +1,4 @@
-// Mongoose DB
+// Mongoose User schema
 var User = require('../models/db.js').User;
 
 // Passport user authentication modules
@@ -51,8 +51,8 @@ module.exports = {
   },
 
   login: function(req, res) {
-    (passport.authenticate('local', { successRedirect: '/',
-                                     failureRedirect: '/',
+    (passport.authenticate('local', { successRedirect: req.get('referer'),
+                                     failureRedirect: req.get('referer'),
                                      failureFlash: true }))(req, res);
   },
 
@@ -86,13 +86,13 @@ module.exports = {
           }
           else {
             req.flash('info', 'User created!');
-            res.send('/');
+            res.send(req.get('referer'));
           }
         });
       }
       else {
         req.flash('error', 'Username already taken, please try again.');
-        res.send('/');
+        res.send(req.get('referer'));
       }
     });
   }
