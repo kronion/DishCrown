@@ -19,13 +19,13 @@
     font-color:#000000;
 }
 .logo {
-    margin-top:300px;
+    margin-top:20px;
     font-size:60px;
     font-color:#333333;
     margin-left:auto;
     margin-right:auto;
     padding-bottom:60px;
-    background-image:url(assets/logo.png);
+    background-image:url(../assets/logo.png);
 }
 .searchbar { 
     margin-left:auto;
@@ -75,6 +75,7 @@ p {font-family:'Open Sans';}
           width:100px;height:100px;
           background-color:#EEEEEE;
           left:50px;}
+
 .container{
     width:900px;
     margin-left:auto;
@@ -89,6 +90,44 @@ textarea.form-control: {width:150px;}
     display:inline-block;
     vertical-align: middle;
 }
+.alert {
+   position:fixed;
+}
+
+
+
+
+
+
+
+
+
+/*
+div.bigstars div.rateit-range
+{
+    background: url(../star_gray.png);
+    height: 32px;
+}
+ 
+div.bigstars div.rateit-hover
+{
+    background: url(../star_gold.png);
+}
+ 
+div.bigstars div.rateit-selected
+{
+    background: url(../star_red.png);
+}
+div.bigstars div.rateit-reset
+{
+    background: url(../star_black.png);
+    width: 32px;
+    height: 32px;
+}
+div.bigstars div.rateit-reset:hover
+{
+    background: url(../star_gray.png);
+}*/
 
 input.btn-small {
     line-height:25px;

@@ -42,6 +42,7 @@ head
             ul.dropdown-menu(role='menu', aria-labelledby='signup')
               form.form-group#register-form(action='/register', method='post')
                 div
+
                   label Username:
                   input.form-control(type='text', name='username')
                 div 
@@ -55,11 +56,13 @@ head
                   input.btn.btn-small#submit(type='submit', value='Sign Up!')
         //assuming that cookie object is a number that doesn't have to be accessed
         if cookie
-          form.form-group(action='/logout', method='get')
-            div  
-              input.btn.btn-small#logout(type='submit', value='Logout')
+          div.pull-right
+            form.form-group(action='/logout', method='get')
+              div  
+                input.btn.btn-small#logout(type='submit', value='Logout')
+            
 
-      .logo.wide-tracking DISHCROWN
+      a.logo.wide-tracking(href='/') DISHCROWN
 
       .topbar
         block topbar
@@ -75,7 +78,7 @@ head
 
       .display-table
         block display-table
-
+      
 
         //- insert 4 elements here from dishes; or spoof with data 
 
