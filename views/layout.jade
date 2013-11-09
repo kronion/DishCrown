@@ -10,6 +10,7 @@ head
 
     // Bootstrap core CSS 
     link(href='/css/bootstrap.css', rel='stylesheet')
+    link(href='/css/hint.min.css', rel='stylesheet')
     link(href='/css/flat-ui.css', rel='stylesheet')
     link(href='/css/style.css', rel='stylesheet')
 
@@ -22,7 +23,6 @@ head
     .flash 
       block flash
     .container-fluid
-      </br>
       ul.nav.nav-pills.pull-right
         if !cookie
           li.dropdown
@@ -31,10 +31,10 @@ head
               form.form-group#login-form(action='/login', method='post')
                 div
                   label Username:
-                  input(type='text', name='username')
+                  input.form-control(type='text', name='username')
                 div
                   label Password:
-                  input(type='password', name='password')
+                  input.form-control(type='password', name='password')
                 div
                   input.btn.btn-small(type='submit', value='Log In')
           li.dropdown
@@ -43,10 +43,14 @@ head
               form.form-group#register-form(action='/register', method='post')
                 div
                   label Username:
-                  input(type='text', name='username')
+                  input.form-control(type='text', name='username')
+                div 
+                  label Name:
+                  span.hint--left(data-hint="Use your real name to get freebies for your reviews!")
+                    input.form-control(type='text', name='name')
                 div
                   label Password:
-                  input(type='password', name='password')
+                  input.form-control(type='password', name='password')
                 div
                   input.btn.btn-small#submit(type='submit', value='Sign Up!')
         //assuming that cookie object is a number that doesn't have to be accessed
