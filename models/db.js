@@ -36,3 +36,12 @@ var restaurantSchema = Schema({
 });
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 exports.Restaurant = Restaurant;
+
+// Reviews
+var reviewSchema = Schema({
+  id: Schema.Types.Mixed,
+  contents: String,
+  username: String
+});
+var Review = mongoose.model('Review', reviewSchema);
+exports.Review = Review;
