@@ -52,16 +52,15 @@ block topbar
             p #{restaurant.contact.number}
             p #{restaurant.contact.address}
 
-
             each review in restaurant.reviews 
               p review
 
-
-            form.form-group(id='       ', type='submit',action='/      ', method='post')
-
-
-    
-
+            form.form-group(id='rstars', type='submit', action='/', method='post')
+                input#id1#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input#id2#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input#id3#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input#id4#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input#id5#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
 
     .row-fluid
         .col-md-10
