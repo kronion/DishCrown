@@ -13,23 +13,17 @@ mixin itempanel(item, index)
             .row-fluid
               .col-md-3
                 #tempimage
- //             .col-md-6
- //               | Details about item, like rating, reviews
-                =item.overall
-                span.inline-rating
-                    ul.star-rating.small-star
-                        li
-                          a.one-star(href='javascript:submitRating(1,5)', title='1 star out of 5') 1
-                        li
-                          a.two-stars(href='javascript:submitRating(2,5)', title='2 stars out of 5') 2
-                        li
-                          a.three-stars(href='javascript:submitRating(3,5)', title='3 stars out of 5') 3
-                        li
-                          a.four-stars(href='javascript:submitRating(4,5)', title='4 stars out of 5') 4
-                        li
-                          a.five-stars(href='javascript:submitRating(5,5)', title='5 stars out of 5') 5
-
+              .col-md-6
+//| Details about item, like rating, reviews
+                p item.overall
                 form.form-group(id='dish'+index+'form', action='/reviewdish', method='post')
+                  form.form-group(id='dstars'+index+'form', action='/dishstarreview', method='post')
+                    input#id1#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input#id2#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input#id3#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input#id4#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input#id5#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+
                   textarea.form-control(rows='3', placeholder='Add your comment')
                   input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
 
@@ -54,21 +48,19 @@ block topbar
           .style
             .col-md-8{height:120px;}
           .col-md-8
-            
-
-            //
-              form.form-group(action='/     ', method='post')
-              div  
-                textarea.form-control(rows='3', placeholder='Add your comment...')
-                input.btn.btn-small#dish-submit(type='submit', value='review')
-
             h3 #{restaurant.name}
             p #{restaurant.contact.number}
             p #{restaurant.contact.address}
 
-    <br>  
-    
+            each review in restaurant.reviews 
+              p review
 
+            form.form-group(id='rstars', type='submit', action='/', method='post')
+                input#id1#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input#id2#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input#id3#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input#id4#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input#id5#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
 
     .row-fluid
         .col-md-10
@@ -77,4 +69,3 @@ block topbar
 
 block append scripts 
   script(type='text/javascript', src='/js/dishreview.js')
-  script(type='text/javascript', src='/js/ratingsys.js')
