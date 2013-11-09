@@ -7,6 +7,24 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 
+/* HTTPS */
+var https = require('https'),
+fs = require('fs');
+var options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem'),
+};
+https.createServer(options, app);
+
+/* HTTPS Redirects */
+function requireHTTPS(req, res, next) {
+  if (!req.secure) {
+    return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
+app.use(requireHTTPS);
+
 /* Mongoose db */
 var db = require('./models/db');
 var connect = db.connect;
@@ -30,7 +48,7 @@ connect.on('error', console.error.bind(console, 'connection error:'));
 connect.once('open', function callback() {
   
   // Home
-  app.get('/', function(req, res) {
+  app.get('/', function (req, res) {
     var logged_in;
     if (req.session.passport.user) {
       logged_in = 1;
