@@ -36,6 +36,16 @@
 #search-input {
   text-align:center;
 }
+.flash {
+  position:absolute;
+  width:100%;
+  top:0;
+  z-index:1;
+}
+.flash.sticky {
+  position:fixed;
+  top:0;
+}
 .container-fluid{
     margin-right:auto;
     margin-left:auto;
@@ -43,6 +53,7 @@
     float:center;
     left,right:auto;
     width:70%;
+    margin-top:60px;
 }
 .form-control{
     margin-left:auto;

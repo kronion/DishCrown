@@ -22,6 +22,9 @@ var search = require('./routes/search');
 // Restaurants
 var restaurants = require('./routes/restaurants');
 
+// Reviews
+var reviews = require('./routes/reviews');
+
 /* DB connect, on callback start routing */
 connect.on('error', console.error.bind(console, 'connection error:'));
 connect.once('open', function callback() {
@@ -54,9 +57,7 @@ connect.once('open', function callback() {
   app.get('/restaurant/:name', restaurants);
 
   // Dish Reviews
-  app.post('/reviewdish', function(req, res) {
-    res.send({ error: 'test' });
-  });
+  app.post('/reviewdish', reviews.dishreviews);
 
 });
 
