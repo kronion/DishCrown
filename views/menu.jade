@@ -45,30 +45,20 @@ block topbar
             p #{restaurant.contact.number}
             p #{restaurant.contact.address}
 
-            // 
-              will you want to display resturant reviews as well? like, 
-              each review in restaurant.reviews 
-                review = ....
-
-
-            form.form-group(id='       ', type='submit',action='/      ', method='post')
+            form.form-group(id='rstars', type='submit', action='/', method='post')
               span.inline-rating
                 ul.star-rating.small-star
                     li.current-rating(style='width: 30%;') 
                     li
-                      input.glyphicon.glyphicon-star.starsubmit.one-star(id='       ', type='submit', title='1 star out of 5') 1
+                      input.glyphicon.glyphicon-star.starsubmit.one-star(id='rstars1', type='submit', title='1 star out of 5') 1
                     li
-                      input.glyphicon.glyphicon-star.starsubmit.two-stars(id='       ', type='submit, ' title='2 stars out of 5') 2
+                      input.glyphicon.glyphicon-star.starsubmit.two-stars(id='rstars2', type='submit', title='2 stars out of 5') 2
                     li
-                      input.glyphicon.glyphicon-star.starsubmit.three-stars(id='     ' , type='submit, title='3 stars out of 5') 3
+                      input.glyphicon.glyphicon-star.starsubmit.three-stars(id='rstars3', type='submit', title='3 stars out of 5') 3
                     li
-                      input.glyphicon.glyphicon-star.starsubmit.four-stars(id='      ', type='submit, title='4 stars out of 5') 4
+                      input.glyphicon.glyphicon-star.starsubmit.four-stars(id='rstars4', type='submit', title='4 stars out of 5') 4
                     li
-                      input.glyphicon.glyphicon-star.starsubmit.five-stars(id='      ', type='submit, title='5 stars out of 5') 5
-
-    <br>  
-    
-
+                      input.glyphicon.glyphicon-star.starsubmit.five-stars(id='rstars5', type='submit', title='5 stars out of 5') 5
 
     .row-fluid
         .col-md-10
