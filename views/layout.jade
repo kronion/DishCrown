@@ -10,6 +10,7 @@ head
 
     // Bootstrap core CSS 
     link(href='/css/bootstrap.css', rel='stylesheet')
+    link(href='/css/hint.min.css', rel='stylesheet')
     link(href='/css/flat-ui.css', rel='stylesheet')
     link(href='/css/style.css', rel='stylesheet')
 
@@ -42,8 +43,13 @@ head
             ul.dropdown-menu(role='menu', aria-labelledby='signup')
               form.form-group#register-form(action='/register', method='post')
                 div
-                  label Username:
+                  label Username: 
                   input(type='text', name='username')
+                div 
+                  //new form field that needs to be added
+                  label Name:
+                  span.hint--left(data-hint="Use your real name to get freebies for your reviews!")
+                    input(type='text', name='name')
                 div
                   label Password:
                   input(type='password', name='password')
@@ -51,9 +57,11 @@ head
                   input.btn.btn-small#submit(type='submit', value='Sign Up!')
         //assuming that cookie object is a number that doesn't have to be accessed
         if cookie
-          form.form-group(action='/logout', method='get')
-            div  
-              input.btn.btn-small#logout(type='submit', value='Logout')
+          div.pull-right
+            form.form-group(action='/logout', method='get')
+              div  
+                input.btn.btn-small#logout(type='submit', value='Logout')
+            
 
       a.logo.wide-tracking(href='/') DISHCROWN
 
@@ -71,7 +79,7 @@ head
 
       .display-table
         block display-table
-
+      
 
         //- insert 4 elements here from dishes; or spoof with data 
 
