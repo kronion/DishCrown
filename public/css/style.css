@@ -26,6 +26,7 @@
     margin-right:auto;
     padding-bottom:60px;
     background-image:url(../assets/logo.png);
+        background-repeat: no-repeat;
 }
 .searchbar { 
     margin-left:auto;
@@ -97,37 +98,6 @@ textarea.form-control: {width:150px;}
 
 
 
-
-
-
-
-
-/*
-div.bigstars div.rateit-range
-{
-    background: url(../star_gray.png);
-    height: 32px;
-}
- 
-div.bigstars div.rateit-hover
-{
-    background: url(../star_gold.png);
-}
- 
-div.bigstars div.rateit-selected
-{
-    background: url(../star_red.png);
-}
-div.bigstars div.rateit-reset
-{
-    background: url(../star_black.png);
-    width: 32px;
-    height: 32px;
-}
-div.bigstars div.rateit-reset:hover
-{
-    background: url(../star_gray.png);
-}*/
 
 input.btn-small {
     line-height:25px;
