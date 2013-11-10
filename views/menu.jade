@@ -46,7 +46,7 @@ block flash
               button.close(type="button", data-dismiss="alert" aria-hidden="true")
                 | x
 
-block topbar
+block content
     .row-fluid
         .row-fluid
           br 
@@ -79,9 +79,10 @@ block topbar
         .col-md-10
           each val, index in restaurant.menu
             +itempanel(val, index)
-  if reviews
-      each review in reviews.uDishes
-        $("panel-collapse[attribute=review.id]").append('You rated this dish' + review + 'stars out of 5');
+
+    if reviews
+        each review in reviews.uDishes
+          $("div[data-attribute=review.id]").append('You rated this dish' + review + 'stars out of 5');
 
 block append scripts 
   script(type='text/javascript', src='/js/dishreview.js')
