@@ -8,22 +8,33 @@ mixin itempanel(item, index)
           h4.panel-title
             a.accordion-toggle(data-toggle='collapse', data-parent='#accordion', href='##{ index }')
               =item.name
-        div(id=index).panel-collapse.collapse
+        div.panel-collapse.collapse(id=index, data-attribute=#{item.id})
           .panel-body
             .row-fluid
- //             .col-md-3
- //             .col-md-6
+              .col-md-3
+              .col-md-6
                 p item.overall
-                form.form-group(id='dish'+index+'form', action='/reviewdish', method='post')
-                  form.form-group(id='dstars'+index+'form', action='/dishstarreview', method='post')
-                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'1', type='submit')
-                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'2', type='submit')
-                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'3', type='submit')
-                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'4', type='submit')
-                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'5', type='submit')
+                  if !user_reviewed
+                    form.form-group(id='d'+index+'stars', action='/dishstar', method='post')
+                      button.empty.star-empty.dishstars(id='d'+index+'1', type='submit')
+                      button.empty.star-empty.dishstars(id='d'+index+'2', type='submit')
+                      button.empty.star-empty.dishstars(id='d'+index+'3', type='submit')
+                      button.empty.star-empty.dishstars(id='d'+index+'4', type='submit')
+                      button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
+                    = item.VALUE / item.reviewcount + 'stars out of 5' 
 
-                  textarea.form-control(rows='3', placeholder='Add your comment')
-                  input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
+                    form.form-group(id=dishreview, action='/dishreview', method='post')    
+                      textarea.form-control(rows='3', placeholder='Add your comment')
+                      input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
+                  if user_reviewed
+                    button.empty.star-empty.dishstars(id='d'+index+'1')
+                    button.empty.star-empty.dishstars(id='d'+index+'2')
+                    button.empty.star-empty.dishstars(id='d'+index+'3')
+                    button.empty.star-empty.dishstars(id='d'+index+'4')
+                    button.empty.star-empty.dishstars(id='d'+index+'5')
+                    = item.VALUE / item.reviewcount + 'stars out of 5'
+
+                    
 
 block flash
     if flash.error
@@ -49,15 +60,14 @@ block topbar
             p #{restaurant.contact.number}
             p #{restaurant.contact.address}
 
-            // each review in restaurant.reviews 
-              // p review
 
             form.form-group(id='rstars', type='submit', action='/', method='post')
-                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r1', type='submit')
-                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r2', type='submit')
-                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r3', type='submit')
-                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r4', type='submit')
-                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r5', type='submit')
+              button.empty.star.rstars(id='r1', type='submit')
+              button.empty.star.rstars(id='r2', type='submit')
+              button.empty.star.rstars(id='r3', type='submit')
+              button.empty.star.rstars(id='r4', type='submit')
+              button.empty.star.rstars(id='r5', type='submit')
+            = restaurant.RAWSCORE / item.reviewcount + 'stars out of 5'            
 
     .row-fluid
         .col-md-10

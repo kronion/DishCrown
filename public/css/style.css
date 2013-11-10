@@ -122,6 +122,15 @@ a {color:#333333;}
     margin-right:auto;
 }
 .tt-hint {display:none;}
-.btn {
+.btn,.btn-small {
     line-height:70%;
+}
+
+button.star {
+    background-image:url(../assets/star_gold.png);
+    background-repeat:no-repeat;
+}
+button.star-empty {
+    background-image:url(../assets/star_gold.png);
+    background-repeat:no-repeat;
 }
