@@ -97,6 +97,6 @@ connect.once('open', function callback() {
   app.post('/dishstar', reviews.dishstars);
 
   // Dish Writen Reviews
-  app.post('/reviewdish', reviews.dishreviews);
+  app.post('/dishreview', reviews.dishreviews);
 
 });

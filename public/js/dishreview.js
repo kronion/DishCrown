@@ -43,11 +43,11 @@ $(document).ready(function() {
                 errormessage(result.error);
               }
               else {
-                alert(result);
-                //attempt at reloading the reviewed div 
-                $(this).load(document.URL + '#'+$(this).attr("id"));
-                //Anything is fine! 
-                console.log(result);
+                // UPDATE RATING TOO!
+                var score = '' + $('.pull-left').children().text();
+                var keepFront = score.slice(0, score.indexOf(':')+1);
+                keepFront = keepFront + result.userscore;
+                $('.pull-left').children().html(keepFront);
               }
             }
     );
@@ -57,10 +57,11 @@ $(document).ready(function() {
   $('.dishsubmit').click(function(e) {
 
     var id = '#' + $(this).attr("id") + 'form';
+    var dish = '#' + $(this).attr("id").slice(4);
+    console.log($(dish).attr("data-attribute"));
     var request = {
-      id: $(this).attr("id"),
-      contents: $(id).children("textarea").val(),
-      restaurant: $("h3").html()
+      id: $(dish).attr("data-attribute"),
+      contents: $(id).children("textarea").val()
     }
     e.preventDefault();
     $.post( $(id).attr("action"), request,
@@ -69,9 +70,10 @@ $(document).ready(function() {
                 errormessage(result.error);
               }
               else {
-                alert(result);
-                $(this).load(document.URL + '#'+$(this).attr("id"));
-                console.log(result);
+                var score = '' + $('.pull-left').children().text();
+                var keepFront = score.slice(0, score.indexOf(':')+1);
+                keepFront = keepFront + result.userscore;
+                $('.pull-left').children().html(keepFront);
               }
             }
     );

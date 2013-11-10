@@ -8,7 +8,7 @@ mixin itempanel(item, index)
           h4.panel-title
             a.accordion-toggle(data-toggle='collapse', data-parent='#accordion', href='##{ index }')
               =item.name
-        div.panel-collapse.collapse(id=index, data-attribute='#{item.id}')
+        div(class='panel-collapse collapse #{item.id}' id=index, data-attribute='#{item.id}')
           .panel-body
             .row-fluid
               p 
@@ -25,7 +25,7 @@ mixin itempanel(item, index)
                     button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
                       span ☆  
                   if item.reviewcount
-                    = 'Average ' + (item.overall/item.reviewcount) + 'stars out of 5'   
+                    = 'Average ' + (item.overall/item.reviewcount) + ' stars out of 5'   
                   if !item.reviewcount
                     | No ratings yet!
                   form.form-group(id='dish' + index + 'form', action='/dishreview', method='post')    
@@ -77,10 +77,12 @@ block content
     if reviews
         each review in reviews.uDishes
           if review.type
-            $("div[data-attribute=review.id]").append('Your review: ' + review.contents);
-          if !review.type
-            $("div[data-attribute=review.id]").append('You rated this dish' + review.contents + 'stars out of 5');
+            script(type='text/javascript').
+              document.getElementsByClassName(#{review.id})[0].innerHTML = document.getElementsByClassName(#{review.id})[0].innerHTML + '<p>#{review.contents}</p>';
 
+          if !review.type
+            script(type='text/javascript').
+              document.getElementsByClassName(#{review.id})[0].innerHTML = document.getElementsByClassName(#{review.id})[0].innerHTML + '<p>You rated this dish #{review.contents} stars out of 5</p>';
 
 block append scripts 
   script(type='text/javascript', src='/js/dishreview.js')
