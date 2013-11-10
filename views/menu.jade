@@ -13,7 +13,7 @@ mixin itempanel(item, index)
             .row-fluid
               .col-md-3
               .col-md-6
-                p item.overall
+                p 
                   if 1 
                     form.form-group(id='d'+index+'stars', action='/dishstar', method='post')
                       button.empty.star-empty.dishstars(id='d'+index+'1', type='submit')
@@ -22,8 +22,8 @@ mixin itempanel(item, index)
                       button.empty.star-empty.dishstars(id='d'+index+'4', type='submit')
                       button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
                       if item.reviewcount
-                        = ' ' + item.overall / item.reviewcount + 'stars out of 5'   
-                       if !item.reviewcount
+                        = ' ' + #{item.overall} / #{item.reviewcount} + 'stars out of 5'   
+                       if !#{item.reviewcount}
                         | No reviews yet!
 
 
@@ -36,9 +36,9 @@ mixin itempanel(item, index)
                       button.empty.star-empty.dishstars(id='d'+index+'3')
                       button.empty.star-empty.dishstars(id='d'+index+'4')
                       button.empty.star-empty.dishstars(id='d'+index+'5')
-                      if item.reviewcount
-                        = ' ' + item.overall / item.reviewcount + 'stars out of 5'   
-                      if !item.reviewcount
+                      if #{item.reviewcount}
+                        = ' ' + #{item.overall} / #{item.reviewcount} + 'stars out of 5'   
+                      if !#{item.reviewcount}
                         | No reviews yet!
 
 
@@ -74,9 +74,9 @@ block topbar
               button.empty.star.rstars(id='r4', type='submit')
               button.empty.star.rstars(id='r5', type='submit')
             
-              if restaurant.reviewcount
-                = restaurant.rawscore / restaurant.reviewcount + 'stars out of 5'   
-              if !restaurant.reviewcount
+              if #{restaurant.reviewcount}
+                = #{restaurant.rawscore} / #{restaurant.reviewcount} + 'stars out of 5'   
+              if !#{restaurant.reviewcount}
                 | No reviews yet!         
 
     .row-fluid
