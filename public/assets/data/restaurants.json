@@ -1,13 +1,13 @@
 [
   { "value": "Blue Point Grill", "tokens": ["Blue", "Point", "Grill"] },
+  { "value": "Cheeburger Cheeburger", "tokens": ["Cheeburger"] },
   { "value": "Elements", "tokens": ["Elements"] },
+  { "value": "Eno Terra", "tokens": ["Eno", "Terra"] },
   { "value": "La Mezzaluna", "tokens": ["La", "Mezzaluna"] },
   { "value": "Mediterra", "tokens": ["Mediterra"] },
-  { "value": "Metro North", "tokens": ["Metro", "North"] },
   { "value": "Mistral", "tokens": ["Mistral"] },
-  { "value": "Teresa Caffe", "tokens": ["Teresa", "Caffe", "Teresa's"] },
+  { "value": "Nassau Street Seafood", "tokens": ["Nassau", "Street", "Seafood"] }, 
   { "value": "Witherspoon Grill", "tokens": ["Witherspoon", "Grill"] },
   { "value": "Winberie's", "tokens": ["Winberie's"] },
   { "value": "Yankee Doodle Tap Room", "tokens": ["Yankee", "Doodle", "Tap", "Room", "Taproom"] }
 ]
-
