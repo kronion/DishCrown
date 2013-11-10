@@ -14,15 +14,15 @@ mixin itempanel(item, index)
               .col-md-3
                 #tempimage
               .col-md-6
-//| Details about item, like rating, reviews
+                //| Details about item, like rating, reviews
                 p item.overall
                 form.form-group(id='dish'+index+'form', action='/reviewdish', method='post')
                   form.form-group(id='dstars'+index+'form', action='/dishstarreview', method='post')
-                    input#id1#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
-                    input#id2#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
-                    input#id3#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
-                    input#id4#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
-                    input#id5#{ index }.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
+                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='dishstar'+index,type='submit')
 
                   textarea.form-control(rows='3', placeholder='Add your comment')
                   input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
@@ -52,15 +52,15 @@ block topbar
             p #{restaurant.contact.number}
             p #{restaurant.contact.address}
 
-            each review in restaurant.reviews 
-              p review
+            // each review in restaurant.reviews 
+              // p review
 
             form.form-group(id='rstars', type='submit', action='/', method='post')
-                input#id1#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
-                input#id2#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
-                input#id3#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
-                input#id4#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
-                input#id5#{ index }.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
+                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='dishstar'+index,type='submit')
 
     .row-fluid
         .col-md-10

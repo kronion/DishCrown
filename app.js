@@ -15,13 +15,12 @@ var options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
 };
-https.createServer(options, app).listen(443);
-http.createServer(app).listen(80);
-app.enable('trust proxy'); // I think this doesn't work
+http.createServer(app).listen(8000);
+https.createServer(options, app).listen(44300);
 
 /* HTTPS Redirects */
 function requireHTTPS(req, res, next) {
-  if (!res.socket.ssl) {
+  if (!res.socket.pair.ssl) {
     return res.redirect('https://' + req.get('host') + req.url);
   }
   next();
@@ -81,5 +80,3 @@ connect.once('open', function callback() {
   app.post('/reviewdish', reviews.dishreviews);
 
 });
-
-//app.listen(443);
