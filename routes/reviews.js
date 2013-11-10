@@ -32,10 +32,10 @@ module.exports = {
               var userScore;
 
               // Update appropriate restaurant menu item
-              Restaurant.findOne/*AndUpdate*/({ 'menu.id': req.body.id },
-                        //{ $inc: { 'menu.$.reviewcount': 1,
-                        //          'menu.$.overall': parseInt(req.body.value)}}, 
-                          function (err, updatedRest) {
+              Restaurant.findOneAndUpdate({ 'menu.id': req.body.id },
+                                          { $inc: { 'menu.$.reviewcount': 1,
+                                                    'menu.$.overall': parseInt(req.body.value)}}, 
+                                            function (err, updatedRest) {
                 if (err) {
                   console.error.bind(console, 'update failed:');
                   res.send({ error: 'Database failure: could not update reviews' });
@@ -49,10 +49,10 @@ module.exports = {
                   reviewCount = lookup[req.body.id].reviewcount;
 
                   // Update user reviews and score!
-                  User.findOne/*AndUpdate*/({ '_id': new ObjectId(userId) },
-                                         // { $inc: { 'score': 10 },
-                                       //   $push: { 'reviews.dishes': req.body.id }},
-                                            function (err, updatedUser) {
+                  User.findOneAndUpdate({ '_id': new ObjectId(userId) },
+                                        { $inc: { 'score': 10 },
+                                          $push: { 'reviews.dishes': req.body.id }},
+                                          function (err, updatedUser) {
                     if (err) {
                       console.error.bind(console, 'update failed:');
                       res.send({error: 'Database failure: could not update user score'});
