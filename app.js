@@ -30,6 +30,8 @@ app.use(requireHTTPS);
 /* Mongoose db */
 var db = require('./models/db');
 var connect = db.connect;
+var User = db.User;
+var ObjectId = db.ObjectId;
 
 /* Routes */
 // Authenticating and user signin
@@ -56,9 +58,24 @@ connect.once('open', function callback() {
       logged_in = 1;
     }
     else logged_in = 0;
-
-    res.render('index', { cookie: logged_in,
-                          flash: req.flash()});
+    if (logged_in === 1) {
+      User.findOne({ '_id' : new ObjectId(req.session.passport.user) },
+                    function(err, user) {
+        if (err) {
+          req.flash('error', 'Database error: could not load user data');
+        }
+        else {
+          res.render('index', { cookie: logged_in,
+                                flash: req.flash(),
+                                name: user.realname,
+                                userscore: user.score});
+        }
+      });
+    }
+    else {
+      res.render('index', { cookie: logged_in,
+                            flash: req.flash()});
+    }
   });
 
   // Login    

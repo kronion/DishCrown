@@ -12,7 +12,6 @@ mixin itempanel(item, index)
           .panel-body
             .row-fluid
               p 
-
                 ul.form.form-group(id='d'+index+'stars', action='/dishstar', method='post')
                   .rating
                     button.empty.star-empty.dishstars(id='d'+index+'1', type='submit')  
@@ -34,7 +33,6 @@ mixin itempanel(item, index)
                     input.dishsubmit(id='dish'+index, type='submit', value='Post Review')                       
 
 
-                    
 
 block flash
     if flash.error
@@ -71,7 +69,7 @@ block topbar
                 button.empty.star.rstars(id='r5', type='submit')
                   span ☆  
               if restaurant.reviewcount
-                = 'Average ' + (restaurant.rawscore/restaurant.reviewcount) + 'stars out of 5'   
+                = 'Average ' + (restaurant.rawscore/restaurant.reviewcount) + ' stars out of 5'   
               if !restaurant.reviewcount
                 | No reviews yet!         
 
@@ -84,5 +82,6 @@ block topbar
   if reviews
       each review in reviews.uDishes
         $("#d"+review.id+"stars").append('You rated this dish' + reviews.uDishes.review + 'stars out of 5');
+
 block append scripts 
   script(type='text/javascript', src='/js/dishreview.js')

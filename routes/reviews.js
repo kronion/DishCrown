@@ -63,9 +63,6 @@ module.exports = {
                       if (   typeof overAll == 'undefined'
                           || typeof reviewCount == 'undefined' 
                           || typeof userScore == 'undefined') {
-                        console.log(overAll);
-                        console.log(reviewCount);
-                        console.log(userScore);
                         res.send({error: 'Database failure: could not create response'});
                       }
                       else {
