@@ -41,6 +41,7 @@ exports.Restaurant = Restaurant;
 // Reviews
 var reviewSchema = Schema({
   id: Schema.Types.Mixed,
+  type: Number,
   contents: String,
   username: String
 });
