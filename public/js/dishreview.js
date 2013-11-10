@@ -3,6 +3,7 @@ $(document).ready(function() {
   /* Handling alerts snapped to top of window */
   // Cache selectors outside callback for performance. 
   var view = $(window),
+ 
   flashDiv = $('.flash'),
   divTop = flashDiv.offset().top;
   if (view.scrollTop() > 0) {
@@ -43,6 +44,9 @@ $(document).ready(function() {
               }
               else {
                 alert(result);
+                //attempt at reloading the reviewed div 
+                $(this).load(document.URL + '#'+$(this).attr("id"));
+                //Anything is fine! 
                 console.log(result);
               }
             }
@@ -63,6 +67,11 @@ $(document).ready(function() {
             function(result) { 
               if (result.error) {
                 errormessage(result.error);
+              }
+              else {
+                alert(result);
+                $(this).load(document.URL + '#'+$(this).attr("id"));
+                console.log(result);
               }
             }
     );

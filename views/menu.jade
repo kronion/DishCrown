@@ -28,10 +28,15 @@ mixin itempanel(item, index)
                         button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
                           span ☆  
                       if item.reviewcount
-                        = (item.overall/item.reviewcount) + 'stars out of 5'   
-                       if !item.reviewcount
-                        | No reviews yet!
-
+                        = 'Average ' + (item.overall/item.reviewcount) + 'stars out of 5'   
+                      if allReviews.uDishes
+                        = 'You rated this dish' + allReview.uDishes.review + 'stars out of 5'
+                      if !item.reviewcount
+                        | No ratings yet!
+                      form.form-group(id=dishreview, action='/dishreview', method='post')    
+                        textarea.form-control(rows='3', placeholder='Add your comment')
+                        input.dishsubmit(id='dish'+index, type='submit', value='Post Review')                        
+                  
 
                   if 0
                       form.form-group(id=dishreview, action='/dishreview', method='post')    
@@ -45,7 +50,7 @@ mixin itempanel(item, index)
                       if item.reviewcount
                         = (item.overall/item.reviewcount) + 'stars out of 5'   
                       if !item.reviewcount
-                        | No reviews yet!
+                        | No ratings yet!
 
 
                     
@@ -85,11 +90,12 @@ block topbar
                   span ☆  
                 button.empty.star.rstars(id='r5', type='submit')
                   span ☆  
-            
               if restaurant.reviewcount
-                = (restaurant.rawscore/restaurant.reviewcount) + 'stars out of 5'   
+                = 'Average ' + (restaurant.rawscore/restaurant.reviewcount) + 'stars out of 5'   
               if !restaurant.reviewcount
                 | No reviews yet!         
+
+
 
     .row-fluid
         .col-md-10
