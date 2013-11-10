@@ -76,7 +76,11 @@ block content
 
     if reviews
         each review in reviews.uDishes
-          $("div[data-attribute=review.id]").append('You rated this dish' + review.contents + 'stars out of 5');
+          if review.type
+            $("div[data-attribute=review.id]").append('Your review: ' + review.contents);
+          if !review.type
+            $("div[data-attribute=review.id]").append('You rated this dish' + review.contents + 'stars out of 5');
+
 
 block append scripts 
   script(type='text/javascript', src='/js/dishreview.js')
