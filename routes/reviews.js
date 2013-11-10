@@ -72,7 +72,7 @@ module.exports = {
                         res.send({ id: req.body.id,
                                    overall: overAll,
                                    reviewcount: reviewCount,
-                                  userscore: userScore
+                                   userscore: userScore
                                 });
                       }
                     }
@@ -128,7 +128,11 @@ module.exports = {
                     res.send({error: 'Database failure: could not create response'});
                   }
                   else {
-                    res.send({null, null, null, userScore});
+                    res.send({id: null, 
+                              overall: null,
+                              reviewcount: null, 
+                              userscore: userScore
+                             });
                   }
                 }
               });
