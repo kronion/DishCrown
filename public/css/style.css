@@ -41,7 +41,7 @@
 }
 #search-input {
   text-align:center;
-  width:200px;
+  width:400px;
 }
 .flash {
   position:absolute;
@@ -83,7 +83,7 @@ p {font-family:OpenSans;}
           left:50px;}
 
 .container{
-    width:900px;
+    width:100%;
     margin-left:auto;
     margin-right:auto;}
 .alert { position:fixed;}
