@@ -11,47 +11,27 @@ mixin itempanel(item, index)
         div.panel-collapse.collapse(id=index, data-attribute='#{item.id}')
           .panel-body
             .row-fluid
-              .col-md-3
-              .col-md-6
-                p 
-                  if 1 
-                    ul.form.form-group(id='d'+index+'stars', action='/dishstar', method='post')
-                      .rating
-                        button.empty.star-empty.dishstars(id='d'+index+'1', type='submit')  
-                          span ☆  
-                        button.empty.star-empty.dishstars(id='d'+index+'2', type='submit')
-                          span ☆  
-                        button.empty.star-empty.dishstars(id='d'+index+'3', type='submit')
-                          span ☆  
-                        button.empty.star-empty.dishstars(id='d'+index+'4', type='submit')
-                          span ☆  
-                        button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
-                          span ☆  
-                      if item.reviewcount
-                        = 'Average ' + (item.overall/item.reviewcount) + 'stars out of 5'   
-                      if reviews
-                        if reviews.uDishes.review
-                          = 'You rated this dish' + allReview.uDishes.review + 'stars out of 5'
-                      if !item.reviewcount
-                        | No ratings yet!
-                      form.form-group(id=dishreview, action='/dishreview', method='post')    
-                        textarea.form-control(rows='3', placeholder='Add your comment')
-                        input.dishsubmit(id='dish'+index, type='submit', value='Post Review')                        
-                  
-
-                  if 0
-                      form.form-group(id=dishreview, action='/dishreview', method='post')    
-                        textarea.form-control(rows='3', placeholder='Add your comment')
-                        input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
-                      button.empty.star-empty.dishstars(id='d'+index+'1')
-                      button.empty.star-empty.dishstars(id='d'+index+'2')
-                      button.empty.star-empty.dishstars(id='d'+index+'3')
-                      button.empty.star-empty.dishstars(id='d'+index+'4')
-                      button.empty.star-empty.dishstars(id='d'+index+'5')
-                      if item.reviewcount
-                        = (item.overall/item.reviewcount) + 'stars out of 5'   
-                      if !item.reviewcount
-                        | No ratings yet!
+              p 
+                if 1 
+                  ul.form.form-group(id='d'+index+'stars', action='/dishstar', method='post')
+                    .rating
+                      button.empty.star-empty.dishstars(id='d'+index+'1', type='submit')  
+                        span ☆  
+                      button.empty.star-empty.dishstars(id='d'+index+'2', type='submit')
+                        span ☆  
+                      button.empty.star-empty.dishstars(id='d'+index+'3', type='submit')
+                        span ☆  
+                      button.empty.star-empty.dishstars(id='d'+index+'4', type='submit')
+                        span ☆  
+                      button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
+                        span ☆  
+                    if item.reviewcount
+                      = 'Average ' + (item.overall/item.reviewcount) + 'stars out of 5'   
+                    if !item.reviewcount
+                      | No ratings yet!
+                    form.form-group(id=dishreview, action='/dishreview', method='post')    
+                      textarea.form-control(rows='3', placeholder='Add your comment')
+                      input.dishsubmit(id='dish'+index, type='submit', value='Post Review')                       
 
 
                     
@@ -71,12 +51,11 @@ block flash
 block topbar
     .row-fluid
         .row-fluid
-          .col-md-4
-            img.img-thumbnail(src='#{restaurant.image}')
-          .col-md-8
-            h3 #{restaurant.name}
-            p #{restaurant.contact.number}
-            p #{restaurant.contact.address}
+          br 
+          br
+          h3 #{restaurant.name}
+          p #{restaurant.contact.number}
+          p #{restaurant.contact.address}
 
 
             ul.form.form-group(id='rstars', type='submit', action='/', method='post')
@@ -102,6 +81,8 @@ block topbar
         .col-md-10
           each val, index in restaurant.menu
             +itempanel(val, index)
-
+  if reviews
+      each review in reviews.uDishes
+        $("#d"+review.id+"stars").append(" <p> You rated this dish' + reviews.uDishes.review + 'stars out of 5 </p> ");
 block append scripts 
   script(type='text/javascript', src='/js/dishreview.js')
