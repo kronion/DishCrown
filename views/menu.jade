@@ -81,7 +81,7 @@ block topbar
             +itempanel(val, index)
   if reviews
       each review in reviews.uDishes
-        $("#d"+review.id+"stars").append('You rated this dish' + reviews.uDishes.review + 'stars out of 5');
+        $("panel-collapse[attribute=review.id]").append('You rated this dish' + review + 'stars out of 5');
 
 block append scripts 
   script(type='text/javascript', src='/js/dishreview.js')
