@@ -140,8 +140,9 @@ button {
 }
 .btn, .btn-small, .nav, input{
     line-height:70%;
-height:18px;}
+}
 .copy {
     font-size:9px;
     font-family:FuturaHeavy;
+
 }
