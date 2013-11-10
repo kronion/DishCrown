@@ -24,7 +24,7 @@
     font-color:#000000;
 }
 .logo {
-    margin-top:20px;
+    margin-top:40px;
     font-size:60px;
     font-color:#333333;
     margin-left:auto;
@@ -61,39 +61,24 @@
     width:70%;
     margin-top:60px;
 }
-.form-control{
-    margin-left:auto;
-    margin-right:auto;
-    width:300px;
-    height:40px;
-    border-color: #1ABC9C;
-    border-transparency:40%;
-}
+
 li.nav {top:20px;}
 ul.nav {
     padding-top:20px;
     padding-bottom:20px;
     padding-right:10px;
 }
-p {font-family:OpenSans;}
-#tempimage{margin-left:100px;
-          width:100px;height:100px;
-          background-color:#EEEEEE;
-          left:50px;}
-
+p,h3,h4 {font-family:OpenSans;}
 .container{
     width:100%;
     margin-left:auto;
     margin-right:auto;
 }
-
 .alert { 
     position:fixed;
     width:100%;
 }
-
 textarea.form-control: {width:150px;}
-
 .inline-rating{
     display:-moz-inline-block;
     display:-moz-inline-box;
@@ -107,10 +92,6 @@ textarea.form-control: {width:150px;}
 .smaller {
     line-height:70%;
 }
-input.btn-small {
-    line-height:25px;
-    vertical-align:center;
-}
 .form-group {
     padding:10px;
 }
@@ -120,22 +101,25 @@ input.form-control {
 }
 
 a {color:#333333;}
-
+.form-control{
+    margin-left:auto;
+    margin-right:auto;
+    width:300px;
+    height:40px;
+    border-color: #1ABC9C;
+    border-transparency:40%;
+}
 .tt-dropdown-menu {
     margin-left:auto;
     margin-right:auto;
 }
 .tt-hint {display:none;}
-.btn,.btn-small {
-    line-height:70%;
-}
 button {
     border:none;
     background-color:#FFFFFF;
 }
 .rating {
       unicode-bidi: bidi-override;
-    
   direction: rtl;
 }
 .rating > button > span {
@@ -154,3 +138,6 @@ button {
     left: 0; 
    color: #f5cc23;
 }
+.btn, .btn-small, .nav, input{
+    line-height:70%;
+height:18px;}

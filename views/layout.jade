@@ -56,11 +56,15 @@ head
                   input.btn.btn-small.smaller#submit(type='submit', value='Sign Up!')
         //assuming that cookie object is a number that doesn't have to be accessed
         if cookie
+          div.pull-left
+            p 
+              = "Hi, " + user.realname + "Your Score: " + user.score
           div.pull-right
             form.form-group(action='/logout', method='get')
               div  
                 input.btn.smaller.btn-small#logout(type='submit', value='Logout')
             
+      br
       br
       a.logo.wide-tracking(href='/') DISHCROWN
 
