@@ -11,18 +11,16 @@ mixin itempanel(item, index)
         div(id=index).panel-collapse.collapse
           .panel-body
             .row-fluid
-              .col-md-3
-                #tempimage
-              .col-md-6
-                //| Details about item, like rating, reviews
+ //             .col-md-3
+ //             .col-md-6
                 p item.overall
                 form.form-group(id='dish'+index+'form', action='/reviewdish', method='post')
                   form.form-group(id='dstars'+index+'form', action='/dishstarreview', method='post')
-                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='d'+index+'1', type='submit')
-                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='d'+index+'2', type='submit')
-                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='d'+index+'3', type='submit')
-                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='d'+index+'4', type='submit')
-                    input.empty.glyphicon.glyphicon-star-emptydishstarsubmit(id='d'+index+'5', type='submit')
+                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'1', type='submit')
+                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'2', type='submit')
+                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'3', type='submit')
+                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'4', type='submit')
+                    input.empty.glyphicon.glyphicon-star-empty.dishstarsubmit(id='d'+index+'5', type='submit')
 
                   textarea.form-control(rows='3', placeholder='Add your comment')
                   input.dishsubmit(id='dish'+index, type='submit', value='Post Review')
@@ -43,8 +41,7 @@ block topbar
     .row-fluid
         .row-fluid
           .col-md-4
-            | {{restaurant image}}
-            #tempimage
+            img.img-thumbnail(src='#{restaurant.image'})
           .style
             .col-md-8{height:120px;}
           .col-md-8
@@ -56,11 +53,11 @@ block topbar
               // p review
 
             form.form-group(id='rstars', type='submit', action='/', method='post')
-                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='r1', type='submit')
-                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='r2', type='submit')
-                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='r3', type='submit')
-                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='r4', type='submit')
-                input.empty.glyphicon.glyphicon-star.dishstarsubmit(id='r5', type='submit')
+                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r1', type='submit')
+                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r2', type='submit')
+                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r3', type='submit')
+                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r4', type='submit')
+                input.empty.glyphicon.glyphicon-star-empty.rstarsubmit(id='r5', type='submit')
 
     .row-fluid
         .col-md-10

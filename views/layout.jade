@@ -23,7 +23,7 @@ head
     .flash 
       block flash
     .container-fluid
-      ul.nav.nav-pills.pull-right
+      ul.nav.nav-pills.pull-right.smaller
         if !cookie
           li.dropdown
             a#login(role='button', data-toggle='dropdown', data-target='#') Login
@@ -36,7 +36,7 @@ head
                   label Password:
                   input.form-control(type='password', name='password')
                 div
-                  input.btn.btn-small(type='submit', value='Log In')
+                  input.btn.btn-small.smaller(type='submit', value='Log In')
           li.dropdown
             a#signup(role='button', data-toggle='dropdown', data-target='#') Sign Up
             ul.dropdown-menu(role='menu', aria-labelledby='signup')
@@ -53,13 +53,13 @@ head
                   label Password:
                   input.form-control(type='password', name='password')
                 div
-                  input.btn.btn-small#submit(type='submit', value='Sign Up!')
+                  input.btn.btn-small.smaller#submit(type='submit', value='Sign Up!')
         //assuming that cookie object is a number that doesn't have to be accessed
         if cookie
           div.pull-right
             form.form-group(action='/logout', method='get')
               div  
-                input.btn.btn-small#logout(type='submit', value='Logout')
+                input.btn.smaller.btn-small#logout(type='submit', value='Logout')
             
       br
       a.logo.wide-tracking(href='/') DISHCROWN
@@ -86,6 +86,13 @@ head
     //-  ================================================== 
     //- Placed at the end of the document so the pages load faster 
 
+    .bottom-menu
+      .container
+        .row
+          .col-md-2.navbar-brand
+            a(href='/')
+          .col-md-8
+            |Food is love. Tell your friends. 
     block scripts
       script(src='/js/jquery-2.0.3.min.js')
       script(src='/js/bootstrap.min.js')

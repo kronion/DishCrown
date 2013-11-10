@@ -1,7 +1,7 @@
 @font-face 
 {
     font-family: FuturaHeavy;
-    src: url('../assets/FuturaStd-Heavy.otf');
+    src: url('../assets/FuturaStd-Bold.otf');
 }
 @font-face 
 {
@@ -31,17 +31,17 @@
     margin-right:auto;
     padding-bottom:60px;
     background-image:url(../assets/logo.png);
-        background-repeat: no-repeat;
+    background-repeat: no-repeat;
 }
 .searchbar { 
     margin-left:auto;
     margin-right:auto;
-    margin-top:100px;
+    margin-top:120px;
     margin-bottom:30px;
-    width:300px;
 }
 #search-input {
   text-align:center;
+  width:200px;
 }
 .flash {
   position:absolute;
@@ -100,10 +100,9 @@ textarea.form-control: {width:150px;}
    position:fixed;
 }
 
-
-
-
-
+.smaller {
+    line-height:70%;
+}
 input.btn-small {
     line-height:25px;
     vertical-align:center;
@@ -112,8 +111,17 @@ input.btn-small {
     padding:10px;
 }
 input.form-control {
-    line-height:25px;
+    line-height:25px; 
     width:100%;
 }
 
 a {color:#333333;}
+
+.tt-dropdown-menu {
+    margin-left:auto;
+    margin-right:auto;
+}
+.tt-hint {display:none;}
+.btn {
+    line-height:70%;
+}
