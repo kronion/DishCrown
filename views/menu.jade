@@ -28,8 +28,8 @@ mixin itempanel(item, index)
                         button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
                           span ☆  
                       if item.reviewcount
-                        = ' ' + #{item.overall} / #{item.reviewcount} + 'stars out of 5'   
-                       if !#{item.reviewcount}
+                        = (item.overall/item.reviewcount) + 'stars out of 5'   
+                       if !item.reviewcount
                         | No reviews yet!
 
 
@@ -42,9 +42,9 @@ mixin itempanel(item, index)
                       button.empty.star-empty.dishstars(id='d'+index+'3')
                       button.empty.star-empty.dishstars(id='d'+index+'4')
                       button.empty.star-empty.dishstars(id='d'+index+'5')
-                      if #{item.reviewcount}
-                        = ' ' + #{item.overall} / #{item.reviewcount} + 'stars out of 5'   
-                      if !#{item.reviewcount}
+                      if item.reviewcount
+                        = (item.overall/item.reviewcount) + 'stars out of 5'   
+                      if !item.reviewcount
                         | No reviews yet!
 
 
@@ -86,9 +86,9 @@ block topbar
                 button.empty.star.rstars(id='r5', type='submit')
                   span ☆  
             
-              if #{restaurant.reviewcount}
-                = #{restaurant.rawscore} / #{restaurant.reviewcount} + 'stars out of 5'   
-              if !#{restaurant.reviewcount}
+              if restaurant.reviewcount
+                = (restaurant.rawscore/restaurant.reviewcount) + 'stars out of 5'   
+              if !restaurant.reviewcount
                 | No reviews yet!         
 
     .row-fluid

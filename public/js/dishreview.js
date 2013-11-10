@@ -41,6 +41,10 @@ $(document).ready(function() {
               if (result.error) {
                 errormessage(result.error);
               }
+              else {
+                alert(result);
+                console.log(result);
+              }
             }
     );
   });
