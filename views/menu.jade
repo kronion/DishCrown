@@ -29,8 +29,8 @@ mixin itempanel(item, index)
                           span ☆  
                       if item.reviewcount
                         = 'Average ' + (item.overall/item.reviewcount) + 'stars out of 5'   
-                      if allReviews
-                        if allReviews.uDishes.review
+                      if reviews
+                        if reviews.uDishes.review
                           = 'You rated this dish' + allReview.uDishes.review + 'stars out of 5'
                       if !item.reviewcount
                         | No ratings yet!
