@@ -29,7 +29,7 @@ $(document).ready(function() {
   $('.dishstars').click(function(e) {
 
     var id = '#' + $(this).attr("id").slice(0, -1) + 'stars';
-    var dish = '#' + $(this).attr("id").charAt(-2);
+    var dish = '#' + $(this).attr("id").slice(1, -1); 
     var value = $(this).attr("id").slice(-1);
     var request = {
       id: $(dish).attr("data-attribute"),
@@ -51,7 +51,8 @@ $(document).ready(function() {
     var id = '#' + $(this).attr("id") + 'form';
     var request = {
       id: $(this).attr("id"),
-      contents: $(id).children("textarea").val()
+      contents: $(id).children("textarea").val(),
+      restaurant: $("h3").html()
     }
     e.preventDefault();
     $.post( $(id).attr("action"), request,
@@ -59,10 +60,6 @@ $(document).ready(function() {
               if (result.error) {
                 errormessage(result.error);
               }
-
-              //$('.close').click(function() {
-              //  $('.container-fluid').css("padding-top", "0px");
-              //});
             }
     );
   });

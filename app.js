@@ -76,7 +76,10 @@ connect.once('open', function callback() {
   // Restaurants
   app.get('/restaurant/:name', restaurants);
 
-  // Dish Reviews
+  // Dish Star Reviews
+  app.post('/dishstar', reviews.dishstars);
+
+  // Dish Writen Reviews
   app.post('/reviewdish', reviews.dishreviews);
 
 });

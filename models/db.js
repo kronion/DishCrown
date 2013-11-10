@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
+require('mongoose-long')(mongoose);
 var opts = { user: 'user', pass: 'vanilla' };
 mongoose.connect('mongodb://localhost/product', opts);
 var db = mongoose.connection;
 exports.connect = db;
 
 var Schema = mongoose.Schema; // Just shortens the code
+exports.ObjectId = mongoose.Types.ObjectId; // Useful for searching by ObjectId
 
 // Users
 var userSchema = Schema({
@@ -20,6 +22,19 @@ var userSchema = Schema({
 var User = mongoose.model('User', userSchema);
 exports.User = User;
 
+// Menus
+var Menus = new Schema({
+  id: Schema.Types.Long,
+  type: String,
+  name: String,
+  price: Number,
+  overall: Number,
+  taste: Number,
+  presentation: Number,
+  value: Number,
+  reviewcount: Number
+});
+
 // Restaurants
 var restaurantSchema = Schema({
   id: { type: String, lowercase: true },
@@ -33,7 +48,7 @@ var restaurantSchema = Schema({
     address: String,
     website: String
   },
-  menu: [Schema.Types.Mixed]
+  menu: [Menus]
 });
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 exports.Restaurant = Restaurant;
@@ -43,7 +58,7 @@ var reviewSchema = Schema({
   id: Schema.Types.Mixed,
   type: Number,
   contents: String,
-  username: String
+  user: String
 });
 var Review = mongoose.model('Review', reviewSchema);
 exports.Review = Review;
