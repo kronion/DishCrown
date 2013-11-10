@@ -15,12 +15,18 @@ mixin itempanel(item, index)
               .col-md-6
                 p 
                   if 1 
-                    form.form-group(id='d'+index+'stars', action='/dishstar', method='post')
-                      button.empty.star-empty.dishstars(id='d'+index+'1', type='submit')
-                      button.empty.star-empty.dishstars(id='d'+index+'2', type='submit')
-                      button.empty.star-empty.dishstars(id='d'+index+'3', type='submit')
-                      button.empty.star-empty.dishstars(id='d'+index+'4', type='submit')
-                      button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
+                    ul.form.form-group(id='d'+index+'stars', action='/dishstar', method='post')
+                      .rating
+                        button.empty.star-empty.dishstars(id='d'+index+'1', type='submit')  
+                          span ☆  
+                        button.empty.star-empty.dishstars(id='d'+index+'2', type='submit')
+                          span ☆  
+                        button.empty.star-empty.dishstars(id='d'+index+'3', type='submit')
+                          span ☆  
+                        button.empty.star-empty.dishstars(id='d'+index+'4', type='submit')
+                          span ☆  
+                        button.empty.star-empty.dishstars(id='d'+index+'5', type='submit')
+                          span ☆  
                       if item.reviewcount
                         = ' ' + #{item.overall} / #{item.reviewcount} + 'stars out of 5'   
                        if !#{item.reviewcount}
@@ -67,12 +73,18 @@ block topbar
             p #{restaurant.contact.address}
 
 
-            form.form-group(id='rstars', type='submit', action='/', method='post')
-              button.empty.star.rstars(id='r1', type='submit')
-              button.empty.star.rstars(id='r2', type='submit')
-              button.empty.star.rstars(id='r3', type='submit')
-              button.empty.star.rstars(id='r4', type='submit')
-              button.empty.star.rstars(id='r5', type='submit')
+            ul.form.form-group(id='rstars', type='submit', action='/', method='post')
+              .rating
+                button.empty.star.rstars(id='r1', type='submit')
+                  span ☆  
+                button.empty.star.rstars(id='r2', type='submit')
+                  span ☆  
+                button.empty.star.rstars(id='r3', type='submit')
+                  span ☆  
+                button.empty.star.rstars(id='r4', type='submit')
+                  span ☆  
+                button.empty.star.rstars(id='r5', type='submit')
+                  span ☆  
             
               if #{restaurant.reviewcount}
                 = #{restaurant.rawscore} / #{restaurant.reviewcount} + 'stars out of 5'   

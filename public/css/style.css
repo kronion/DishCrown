@@ -129,12 +129,28 @@ a {color:#333333;}
 .btn,.btn-small {
     line-height:70%;
 }
-
-button.star {
-    background-image:url(../assets/star_gold.png);
-    background-repeat:no-repeat;
+button {
+    border:none;
+    background-color:#FFFFFF;
 }
-button.star-empty {
-    background-image:url(../assets/star_gold.png);
-    background-repeat:no-repeat;
+.rating {
+      unicode-bidi: bidi-override;
+    
+  direction: rtl;
+}
+.rating > button > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > button >span:hover,
+.rating > button >span:hover ~ span {
+  color: transparent;
+}
+.rating > button >span:hover:before,
+.rating > button >span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+    left: 0; 
+   color: #f5cc23;
 }
