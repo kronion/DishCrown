@@ -26,6 +26,8 @@ RESTAURANT DB REPRESENTATION
       DISH
         ID
         Name
+        Type
+        Price
         Overall
         Taste
         Presentation

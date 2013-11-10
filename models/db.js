@@ -10,6 +10,7 @@ var Schema = mongoose.Schema; // Just shortens the code
 var userSchema = Schema({
   username: String,
   password: String,
+  realname: String,
   score: Number,
   reviews: {
     dishes: [Schema.Types.Mixed],

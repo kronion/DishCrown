@@ -69,6 +69,7 @@ module.exports = {
       if (!user) {
         newUser = new User({username: req.body.username,
                             password: req.body.password,
+                            realname: req.body.realname,
                             score: 0,
                             reviews: {
                               dishes: [],
