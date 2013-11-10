@@ -57,9 +57,9 @@ head
         //assuming that cookie object is a number that doesn't have to be accessed
         if cookie
           div.pull-left
-            if user.name && user.score 
+            if name && userscore 
               p 
-                = "Hi, " + user.name + ". Your Score: " + user.score
+                = "Hi, " + name + ". Your Score: " + userscore
           div.pull-right
             form.form-group(action='/logout', method='get')
               div  
