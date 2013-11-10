@@ -30,7 +30,7 @@ $(document).ready(function() {
 
     var id = '#' + $(this).attr("id").slice(0, -1) + 'stars';
     var dish = '#' + $(this).attr("id").slice(1, -1); 
-    var value = $(this).attr("id").slice(-1);
+    var value = 6 - parseInt($(this).attr("id").slice(-1));
     var request = {
       id: $(dish).attr("data-attribute"),
       value: value

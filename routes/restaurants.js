@@ -39,7 +39,6 @@ function recurseDishes (i, len, allReviews, user, dishes, phoneNumber,
           callback({ error : 'Database failure: could not look up dish reviews' });
         }
         else {
-          //console.log(review);
           allReviews.uDishes.push(review);
           recurseDishes(i+1, len, allReviews, user, dishes, phoneNumber,
                         restaurant, req, res, callback);

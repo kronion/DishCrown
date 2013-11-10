@@ -34,7 +34,7 @@ module.exports = {
               // Update appropriate restaurant menu item
               Restaurant.findOneAndUpdate({ 'menu.id': req.body.id },
                                           { $inc: { 'menu.$.reviewcount': 1,
-                                                    'menu.$.overall': parseInt(req.body.value)}}, 
+                                                    'menu.$.overall': req.body.value }}, 
                                             function (err, updatedRest) {
                 if (err) {
                   console.error.bind(console, 'update failed:');
@@ -91,7 +91,8 @@ module.exports = {
 
   dishreviews: function(req, res) {
     if (req.session.passport.user) {
-      Review.findOne({id: req.body.id, user: req.session.passport.user,
+      var userId = req.session.passport.user;
+      Review.findOne({id: req.body.id, user: userId,
                       type: 1 },
                       function (err, review) {
         if (err) {
@@ -101,16 +102,36 @@ module.exports = {
           newReview = new Review({id: req.body.id,
                                   type: 1,
                                   contents: req.body.contents,
-                                  user: req.session.passport.user});
+                                  user: userId});
           newReview.save(function (err) {
             if (err) {
               console.error.bind(console, 'insert failed:');
               res.send({ error: 'Database failure: could not add review' });
             }
             else {
-              // Update other dbs, more error handling...
               // Send back new data
-              res.send({ error: 'Success!' });
+              var userScore;
+
+              // Update user reviews and score!
+              User.findOneAndUpdate({ '_id': new ObjectId(userId) },
+                                    { $inc: { 'score': 10 },
+                                      $push: { 'reviews.dishes': req.body.id }},
+                                      function (err, updatedUser) {
+                if (err) {
+                  console.error.bind(console, 'update failed:');
+                  res.send({error: 'Database failure: could not update user score'});
+                }
+                else {
+                  userScore = updatedUser.score;
+
+                  if (typeof userScore == 'undefined') {
+                    res.send({error: 'Database failure: could not create response'});
+                  }
+                  else {
+                    res.send({null, null, null, userScore});
+                  }
+                }
+              });
             }
           });
         }
