@@ -3,7 +3,12 @@
     font-family: FuturaHeavy;
     src: url('../assets/FuturaStd-Heavy.otf');
 }
-@font
+@font-face 
+{
+    font-family: OpenSans;
+    src: url('../assets/OpenSans-Regular.ttf');
+}
+
 .container, .container-fluid {
     width:80%;
     text-align:center;
@@ -26,6 +31,7 @@
     margin-right:auto;
     padding-bottom:60px;
     background-image:url(../assets/logo.png);
+        background-repeat: no-repeat;
 }
 .searchbar { 
     margin-left:auto;
@@ -70,7 +76,7 @@ ul.nav {
     padding-bottom:20px;
     padding-right:10px;
 }
-p {font-family:'Open Sans';}
+p {font-family:OpenSans;}
 #tempimage{margin-left:100px;
           width:100px;height:100px;
           background-color:#EEEEEE;
@@ -97,37 +103,6 @@ textarea.form-control: {width:150px;}
 
 
 
-
-
-
-
-
-/*
-div.bigstars div.rateit-range
-{
-    background: url(../star_gray.png);
-    height: 32px;
-}
- 
-div.bigstars div.rateit-hover
-{
-    background: url(../star_gold.png);
-}
- 
-div.bigstars div.rateit-selected
-{
-    background: url(../star_red.png);
-}
-div.bigstars div.rateit-reset
-{
-    background: url(../star_black.png);
-    width: 32px;
-    height: 32px;
-}
-div.bigstars div.rateit-reset:hover
-{
-    background: url(../star_gray.png);
-}*/
 
 input.btn-small {
     line-height:25px;
